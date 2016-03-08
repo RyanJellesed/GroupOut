@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var groupOutSchema = mongoose.Schema({
         users        : [],
-        category     : _id,
+        category     : String,
         title        : String,
         description  : String,
         img          : String,
@@ -20,4 +20,4 @@ var groupOutSchema = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('groupOut', groupOutSchema);

@@ -3,16 +3,21 @@ var app        = express();
 var bodyParser = require('body-parser'); // body parser is a package and the 'require' says to pull in body-parser into express
 var passport = require('passport');
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost/blogPosts');
+mongoose.connect('mongodb://localhost/groupOut');
 
 var session = require('express-session');
 var flash = require('connect-flash');
 
-var blogPostRouter = require ('./routes/blogPosts');
+var userRouter = require ('./routes/users');
+var commentRouter = require ('./routes/comments');
+var categoriesRouter = require ('./routes/categories');
+var groupOutEventRouter = require ('./routes/groupOutEvent');
 
-var BlogPost       = require('./models/blogPosts');
+var userInfo  = require('./models/user'); //users profile
+var comments  = require('./models/comments'); //the comment on the Event page
+var groupOutEvent = require ('./models/groupOutEvent');
+var categories = require('./models/categories');
 
-var tweetRoutes = require('./routes/tweets');
 
 
 app.use(bodyParser.urlencoded({ extended: true}));  // app.use is the important part.  It mounts middleware. You need the rest, 'Harold says he doesn't even really understand it'
@@ -34,27 +39,16 @@ app.use(flash());
 
 require('./config/passport')(passport);
 // routes ======================================================================
-require('./routes/user.js')(app, passport);
+require('./routes/users.js')(app, passport);
 
 
 app.use(express.static('public')); //  configures to use all the files in the public folder as static files
-// ===============================================================================
 
-
-// app.use(function (req, res, next) {
-//  var user = req.user || "no user";
-//  // every request we make to our server this is going to check if their is 
-//  // a user
-//  console.log(user);
-//  next();
-// });
-
-
-
-
-// ===============================================================================
 
 app.set('view engine', 'ejs');
+app.get('/', function(req,res){
+  res.render('index');
+});
 
 var port = process.env.PORT || 6060; // this sets the port we are going to use 
 
@@ -68,67 +62,6 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 
 
 
-app.get('/', function(req, res) {
-  var user = req.user || "no user"
-  BlogPost.find(function(err, blogPosts) {
-    if(err) {
-      console.log(err);
-    } else {
-      res.render('blog', { blogPosts: blogPosts, user: user })
-    }
-  })
-});
-  
-app.get('/blogPosts', function(req, res) {
-  var user = req.user || "no user";
-  BlogPost.find(function(err, blogPosts) {
-    if(err) {
-      console.log(err);
-    } else {
-      res.render('blogPosts', { blogPosts: blogPosts, user: user })
-    }
-  })
-});
-
-
-app.get('/about', function(req, res) {
-
-  var user = req.user || "no user";
-
-  var data = {};
-  data.title = 'About Page';
-  data.name = 'Ryan';
-  data.time = new Date();
-
-  res.render('about', {user: user});
-});
-
-app.get('/contact', function (req, res) {
-  var user = req.user || "no user";
-
-  res.render('contact', {user: user});
-})
-
-app.get('/blog', function (req, res) {
-  var user = req.user || "no user";
-
-  res.render('blogPosts', {user: user});
-})
-
-app.get('/comment', function (req, res) {
-  var user = req.user || "no user";
-
-  res.render('comment', {user: user});
-})
-
-app.get('/social', function (req,res) {
-  var user = req.user || "no user";
-  res.render('social', { user: user });
-})
-
-app.use('/api', blogPostRouter);  // app.get needs this app.use in order to be used as middleware 
-
-app.use('/api/tweets/', tweetRoutes);
 
 // we debug server js in our terminal
 // if this works we will see the string in our terminal

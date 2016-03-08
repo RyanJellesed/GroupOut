@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 
 
-var userSchema = mongoose.Schema({
+var commentSchema = mongoose.Schema({
     userName: String,
     _id: String,
     profilePic: String,
@@ -13,5 +13,5 @@ var userSchema = mongoose.Schema({
 
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Comment', commentSchema);
 
