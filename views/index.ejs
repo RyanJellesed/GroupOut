@@ -4,11 +4,31 @@
     <title>Node Authentication - HOME PAGE</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <!-- Compiled and minified CSS -->
+  
     <style>
         body        { padding-top:80px; }
     </style>
 </head>
 <body>
+<script>
+ window.fbAsyncInit = function() {
+   FB.init({
+     appId      : '1732046997082547',
+     xfbml      : true,
+     version    : 'v2.5'
+   });
+ };
+
+ (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="container">
 
     <div class="jumbotron text-center">
@@ -18,8 +38,18 @@
 
         <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
 
+        <div
+ class="fb-like"
+ data-share="true"
+ data-width="450"
+ data-show-faces="true">
+</div>
+
     </div>
 
 </div>
 </body>
+
+<!-- Compiled and minified JavaScript -->
+  
 </html>

@@ -40,6 +40,7 @@ app.use(flash());
 require('./config/passport')(passport);
 // routes ======================================================================
 require('./routes/users.js')(app, passport);
+require('./routes/fbroutes')(app, passport);
 
 
 app.use(express.static('public')); //  configures to use all the files in the public folder as static files
@@ -48,6 +49,9 @@ app.use(express.static('public')); //  configures to use all the files in the pu
 app.set('view engine', 'ejs');
 app.get('/', function(req,res){
   res.render('index');
+});
+app.get('./partial', function(req,res){
+  res.render('navbar');
 });
 
 var port = process.env.PORT || 6060; // this sets the port we are going to use 

@@ -5,16 +5,16 @@ var bcrypt   = require('bcrypt-nodejs');
 // this is known as an authentication strategy
 // local is allowing someong to sign up with just a username and password
 var userSchema = mongoose.Schema({
-    local            : {
-        name         : String,
-        gender       : String,
-        age          : Number,
-        email        : String,
-        password     : String,
-        username     : String,
-        role         : String,
-        profilePic   : String,
-        loggedIn     : Boolean
+    facebook            : {
+        id         : String,
+        token      : String,
+        email      : String,
+        name       : String,
+        dob        : String
+        // username     : String,
+        // role         : String,
+        // profilePic   : String,
+        // loggedIn     : Boolean
     }
 });
 
