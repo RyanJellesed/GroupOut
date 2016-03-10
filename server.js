@@ -11,12 +11,12 @@ var flash = require('connect-flash');
 var userRouter = require ('./routes/users');
 var commentRouter = require ('./routes/comments');
 var categoriesRouter = require ('./routes/categories');
-var groupOutEventRouter = require ('./routes/groupOutEvent');
+var groupOutEventRouter = require ('./routes/groupOutEvents');
 
 var userInfo  = require('./models/user'); //users profile
-var comments  = require('./models/comments'); //the comment on the Event page
+var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
-var categories = require('./models/categories');
+var category = require('./models/category');
 
 
 
@@ -54,6 +54,11 @@ app.get('./partial', function(req,res){
   res.render('navbar');
 });
 
+app.get('/goevent', function(req, res){
+	var user = req.user || "no user";
+		res.render('goevent', {user: user});
+});
+
 var port = process.env.PORT || 6060; // this sets the port we are going to use 
 
 // ===============================================================================
@@ -65,7 +70,7 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 //  
 
 
-
+app.use('/api/event', groupOutEventRouter);
 
 // we debug server js in our terminal
 // if this works we will see the string in our terminal
