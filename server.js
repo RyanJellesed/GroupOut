@@ -11,12 +11,12 @@ var flash = require('connect-flash');
 var userRouter = require ('./routes/users');
 var commentRouter = require ('./routes/comments');
 var categoriesRouter = require ('./routes/categories');
-var groupOutEventRouter = require ('./routes/groupOutEvent');
+var groupOutEventRouter = require ('./routes/groupOutEvents');
 
 var userInfo  = require('./models/user'); //users profile
-var comments  = require('./models/comments'); //the comment on the Event page
+var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
-var categories = require('./models/categories');
+var category = require('./models/category');
 
 
 
@@ -39,7 +39,6 @@ app.use(flash());
 
 require('./config/passport')(passport);
 // routes ======================================================================
-require('./routes/users.js')(app, passport);
 require('./routes/fbroutes')(app, passport);
 
 
@@ -63,7 +62,8 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 // the / is not needed but is a best practice to point at our root directory
 // the function parametes are a Request, Response pair
 //  
-
+app.use('/api/categories', categoriesRouter );
+app.use('/api/user', userRouter );
 
 
 

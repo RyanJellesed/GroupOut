@@ -1,31 +1,58 @@
-var mongoose = require('mongoose');
+var express = require('express');
+var router = express.Router();
 var User = require('../models/user');
+var Catagory = require('../models/category')
 
 
-// app/routes.js
-module.exports = function(app, passport) {
 
-    
+router.route('/:user_id')
+  .get(function(req, res) {
+    User.findById(req.params.user_id)
+    .populate('facebook.interests')
+    .exec(function(err, user) {
+      if(err){
+        console.log(err);
+      } else {
+        res.json(user);
+      }
+    })  
+  })
+  .put(function(req, res) {
+    console.log("im trying to put bio in user")
+    User.findById(req.params.user_id, function(err, user) {
+      if(err){
+        console.log(err);
+      } else {
 
-    app.get('/login', function(req, res) {
-        var user = req.user || "no user";
-        // render the page and pass in any flash data if it exists
-        res.render('login.ejs', {user: user,
-            message: req.flash('loginMessage')
-        });
-    });
+        // 56e1db38721f4726083665cd
+        var interests = '56e1db15721f4726083665cb';
+        
+        user.facebook.bio = req.body.bio ? req.body.bio : user.facebook.bio;
+        user.facebook.interests.push(interests);
+        
 
-    app.post('/login', passport.authenticate('local-login', {
-       successRedirect: '/', // redirect to the secure profile section
-       failureRedirect: '/login', // redirect back to the signup page if there is an error
-       failureFlash: true // allow flash messages
-   }));
 
-  
+        user.save(function(err){
+          if(err){
+            console.log(err);
+          } else {
 
-    app.get('/logout', function(req,res){
-        req.logout();
-        res.redirect('/');
-    });
+            res.json({title: "user updated"});
+          }
+        })
+      }
+    })  
+  })
+  .delete(function(req, res) {
+    user.remove({_id :req.params.user_id}, function(err, user) {
+      if(err){
+        console.log(err);
+      } else {
+        console.log(user);
+        res.json({title: "user was deleted"});
+      }
+    })  
+  })
 
-};  
+module.exports = router;
+

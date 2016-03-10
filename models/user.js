@@ -13,7 +13,10 @@ var userSchema = mongoose.Schema({
         birthday   : String,
         picture    : String,
         gender     : String,
-        
+        bio        : String,
+        interests: [{
+            type: mongoose.Schema.Types.ObjectId, ref: 'Category'
+        }],
     }
 });
 

@@ -20,3 +20,5 @@ module.exports = mongoose.model('Category', categorySchema);
     // crossCountrySkiing: Boolean,
     // fishing: Boolean,
     // running: Boolean
+
+  
