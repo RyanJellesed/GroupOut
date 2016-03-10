@@ -3,11 +3,12 @@ var mongoose = require('mongoose');
 
 
 var commentSchema = mongoose.Schema({
-    userName: String,
-    _id: String,
-    profilePic: String,
+    
+
+    commentor : { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    event: {type: mongoose.Schema.Types.ObjectId, ref: 'GroupOut'},
     date: {type: Date, default: Date.now },
-    commentBox: String
+    commentBody: String,
 });
 
 

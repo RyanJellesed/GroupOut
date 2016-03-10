@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var GoEvent = require('../models/groupOutEvent');
+var Comment = require('../models/comment')
 
 router.route ('/')
     .post(function(req, res){
@@ -92,6 +93,34 @@ router.route ('/')
         });
     });
 
+router.route('/:event_id/comment')
+    .post(function(req, res){
+        var comment = new Comment();
+        
+
+        comment.event = req.params.event_id,
+        // comment.commentor = req.params.commentor_id,
+        comment.commentor = "56e1aa50ce328313072914b6",
+        comment.commentBody = req.body.commentBody,
+
+        console.log('event comments working');
+        comment.save(function(err, com){
+            if(err){
+                res.send(err);
+            } else {
+
+                GoEvent.findById(req.params.event_id, function(err, event){
+                    if(err){
+                        res.send(err);
+                    } else {
+                        event.comments.push(com._id);
+                        event.save();
+                        res.json(com);
+                    }   
+                })
+            }
+        })
+    })
 
 module.exports = router;   
 

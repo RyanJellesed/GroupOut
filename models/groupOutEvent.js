@@ -21,4 +21,4 @@ var groupOutSchema = mongoose.Schema({
 
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('groupOut', groupOutSchema);
+module.exports = mongoose.model('GroupOut', groupOutSchema);

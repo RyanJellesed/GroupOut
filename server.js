@@ -9,7 +9,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 
 var userRouter = require ('./routes/users');
-var commentRouter = require ('./routes/comments');
+// var commentRouter = require ('./routes/comments');
 var categoriesRouter = require ('./routes/categories');
 var groupOutEventRouter = require ('./routes/groupOutEvents');
 
@@ -67,6 +67,7 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 // the / is not needed but is a best practice to point at our root directory
 // the function parametes are a Request, Response pair
 //  
+// app.use('/api/comments', commentRouter );
 app.use('/api/categories', categoriesRouter );
 app.use('/api/user', userRouter );
 
