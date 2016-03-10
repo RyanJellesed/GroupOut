@@ -53,6 +53,11 @@ app.get('./partial', function(req,res){
   res.render('navbar');
 });
 
+app.get('/goevent', function(req, res){
+	var user = req.user || "no user";
+		res.render('goevent', {user: user});
+});
+
 var port = process.env.PORT || 6060; // this sets the port we are going to use 
 
 // ===============================================================================
@@ -65,7 +70,7 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 app.use('/api/categories', categoriesRouter );
 app.use('/api/user', userRouter );
 
-
+app.use('/api/event', groupOutEventRouter);
 
 // we debug server js in our terminal
 // if this works we will see the string in our terminal

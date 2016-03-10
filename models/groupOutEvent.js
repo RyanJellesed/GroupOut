@@ -3,18 +3,19 @@ var mongoose = require('mongoose');
 
 
 var groupOutSchema = mongoose.Schema({
-        users        : [],
-        category     : String,
+        creator      : { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        joiners      : [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+        category     : { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
         title        : String,
         description  : String,
-        img          : String,
+        img          : String, //MVP purposes, not doing this at the start.
         location     : String,
         date         : Date,
         time         : Date,
         level        : String,
         petFriendly  : Boolean,
         familyFriendly : Boolean,
-        comments       : String,
+        comments       :[{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 
 });
 
