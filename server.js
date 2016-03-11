@@ -14,9 +14,11 @@ var categoriesRouter = require ('./routes/categories');
 var groupOutEventRouter = require ('./routes/groupOutEvents');
 
 var userInfo  = require('./models/user'); //users profile
+
 var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
 var category = require('./models/category');
+
 
 
 
@@ -53,10 +55,16 @@ app.get('./partial', function(req,res){
   res.render('navbar');
 });
 
+
 app.get('/goevent', function(req, res){
 	var user = req.user || "no user";
 		res.render('goevent', {user: user});
 });
+
+
+
+
+
 
 var port = process.env.PORT || 6060; // this sets the port we are going to use 
 
