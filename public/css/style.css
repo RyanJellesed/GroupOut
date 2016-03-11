@@ -1,14 +1,11 @@
-#imgfooter {
-  width: 100%;
-  height: 100%;
 
-}
 
 #logo {
   padding-left: 40px;
 }
 
-.blueback {
-  background-color: #43657C; 
-}
+
+.parallax-container {
+      height: 500px;
+    }
 
