@@ -8,10 +8,10 @@ router.route ('/')
         var user = req.user || "no user";
         console.log(user);
         var event = new GoEvent();
-        	event.creator = '56e1dde0d92cc55807f20925'; //temporarily using a valid ID for testing - remove when done testing.
-	        //event.creator = req.user._id || '56e1dde0d92cc55807f20925';
-	        event.joiner = '56e1dde0d92cc55807f20925';
-	        //event.joiner = req.user._id || '56e1dde0d92cc55807f20925';
+        	event.creator = '56e33080165166d5a84a3098'; //temporarily using a valid ID for testing - remove when done testing.
+	        //event.creator = req.user._id || '56e33080165166d5a84a3098';
+	        event.joiner = '56e33080165166d5a84a3098';
+	        //event.joiner = req.user._id || '56e33080165166d5a84a3098';
 	        event.title = req.body.title;
 	        event.category= req.body.category;
 	        event.description = req.body.description;
@@ -35,6 +35,7 @@ router.route ('/')
     .get(function(req, res){
     	GoEvent.find()
     	.populate('creator')
+        .populate('category')
     	.exec(function(err, goevent){
             if(err){
                 console.log(err)
