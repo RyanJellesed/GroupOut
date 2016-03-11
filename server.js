@@ -61,7 +61,9 @@ app.get('/goevent', function(req, res){
 		res.render('goevent', {user: user});
 });
 
-
+app.get('/template', function(req,res) {
+  res.render('template');
+});
 
 
 
