@@ -11,12 +11,12 @@ var flash = require('connect-flash');
 var userRouter = require ('./routes/users');
 var commentRouter = require ('./routes/comments');
 var categoriesRouter = require ('./routes/categories');
-var groupOutEventRouter = require ('./routes/groupOutEvent');
+var groupOutEventRouter = require ('./routes/groupOutEvents');
 
 var userInfo  = require('./models/user'); //users profile
-var comments  = require('./models/comments'); //the comment on the Event page
+var comments  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
-var categories = require('./models/categories');
+var categories = require('./models/category');
 
 
 
@@ -52,6 +52,10 @@ app.get('/', function(req,res){
 });
 app.get('./partial', function(req,res){
   res.render('navbar');
+});
+
+app.get('/template', function(req,res) {
+  res.render('template');
 });
 
 var port = process.env.PORT || 6060; // this sets the port we are going to use 
