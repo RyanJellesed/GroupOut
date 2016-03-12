@@ -65,6 +65,11 @@ app.get('/template', function(req,res) {
   res.render('template');
 });
 
+app.get('/tester', function(req,res) {
+  res.render('tester');
+});
+
+
 
 
 

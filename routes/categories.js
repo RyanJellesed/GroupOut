@@ -5,7 +5,7 @@ var Category = require('../models/category');
 router.route('/')//post a new blog post
 	.post(function(req, res) {
 		var category = new Category();
-		category.name = req.body.categoryName;
+		category.name = req.body.name;
 		
 		category.save(function(err, category){
 			if(err){
