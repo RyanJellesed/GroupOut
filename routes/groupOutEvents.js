@@ -8,19 +8,19 @@ router.route ('/')
         var user = req.user || "no user";
         console.log(user);
         var event = new GoEvent();
-        	event.creator = '56e33080165166d5a84a3098'; //temporarily using a valid ID for testing - remove when done testing.
+        	event.creator = '56e1aa50ce328313072914b6'; //temporarily using a valid ID for testing - remove when done testing.
 	        //event.creator = req.user._id || '56e33080165166d5a84a3098';
-	        event.joiner = '56e33080165166d5a84a3098';
+	        event.joiner = '56e1aa50ce328313072914b6';
 	        //event.joiner = req.user._id || '56e33080165166d5a84a3098';
-	        event.title = req.body.title;
-	        event.category= req.body.category;
-	        event.description = req.body.description;
-	        event.location = req.body.location;
-	        event.date = req.body.date;
-	        event.time = req.body.time;
-	        event.level = req.body.level;
-	        event.petFriendly = req.body.petFriendly;
-	        event.familyFriendly = req.body.familyFriendly;
+	        event.title = req.body.title || "great new event";
+	        event.category= req.body.category || "56e6f44934fa6508113882ef";
+	        event.description = req.body.description || "we're goin mountain biking";
+	        event.location = req.body.location || "everywhere" ;
+	        event.date = req.body.date || "12/12/16" ;
+	        event.time = req.body.time || "6:00 am" ;
+	        event.level = req.body.level || "expert" ;
+	        event.petFriendly = req.body.petFriendly || true;
+	        event.familyFriendly = req.body.familyFriendly || true;
 	        console.log("Creating Event Working", event);
 
 	        event.save(function(err, event){

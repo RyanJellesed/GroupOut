@@ -1,31 +1,42 @@
 var GoEventApp = React.createClass({
-
   propTypes: {
-    url: React.PropTypes.string.isRequired
-  },
+        url: React.PropTypes.string.isRequired
+    },
+    getInitialState: function(){
+        return {
+            events: [],
+            
+        }
+        console.log(events)
+    },
+    
+    loadEventsFromServer: function(){
+        var self=this;
+        $.ajax ({
+            url: this.props.url,
+            method: 'GET'
+        }).done(function(d){
+            console.log(d);
+            self.setState({
+                events: d
+            })
+        })
+    },
+    componentDidMount: function(){
+        console.log("componentDidMount fired");
+        this.loadEventsFromServer()
+    },
+  render: function() {
+    return (
+      <div>
+        <AllEventBox events={this.state.events} />
+      </div>
 
-  getInitialState: function(){
-    return {
+      )
     }
-  },
-
-  loadTweetsFromServer: function(keyword){
-    var self = this;
-    $.ajax({
-      url: this.props.url + keyword,
-      method: 'GET'
-    }).done(function(data){
-      console.log(data)
-      self.setState({tweets: data})
-    })
-  },
-  componentDidMount: function(){
-    this.loadTweetsFromServer(this.state.keyword)
-  },
-
-
-
 });
 
-React.render(<GoEventApp url="/api/tweets/"/>,
-  document.getElementById('goEvent-app'));
+
+React.render(<GoEventApp url="/api/event/" />,
+  document.getElementById('goCard-app-all'));
+

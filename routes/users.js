@@ -25,7 +25,7 @@ router.route('/:user_id')
       } else {
 
         // 56e1db38721f4726083665cd
-        var interests = '56e1db15721f4726083665cb';
+        var interests = '56e6f44934fa6508113882ef';
         
         user.facebook.bio = req.body.bio ? req.body.bio : user.facebook.bio;
         user.facebook.interests.push(interests);

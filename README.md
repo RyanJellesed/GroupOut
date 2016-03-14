@@ -1,4 +1,19 @@
 # GroupOut
+- goEventApp
+ -allEventBox*
+     - goCard (contains top image)
+        - cardBottom
+            -cardIcons
+            -cardDetails
+            -bottomCardLinks
+ -profileEventBox*
+  - goCard (contains top image)
+   - cardBottom
+     -cardIcons
+     -cardDetails
+     -bottomCardLinks
+
+//this is static go card     
 <div class="col s12 l4">
                <div class="card hoverable">
                  <div class="card-image">
