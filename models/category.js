@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 
 var categorySchema = mongoose.Schema({
   name: String,
-  img: String
+  img: String,
+  icon: String,
 });
 
 

@@ -4,10 +4,12 @@ var AllEventBox = React.createClass({
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
             <GoCard
-              creator = {oneEvent.creator}
+              creatorName = {oneEvent.creator.facebook.name}
+              creatorImg = {oneEvent.creator.facebook.picture}
               joiners = {oneEvent.joiners}   
               category = {oneEvent.category.name}    
               img = {oneEvent.category.img}
+              categoryIcon = {oneEvent.category.icon}
               title = {oneEvent.title}
               description = {oneEvent.description}
               location = {oneEvent.location}

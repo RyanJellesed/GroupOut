@@ -14,16 +14,16 @@ var GoCard = React.createClass({
                 <div className="valign-wrapper" >
                 <ul className="valign-wrapper">
                   <li>
-                    <i className="material-icons left-align">directions_bike</i>
+                    <img className="icon-ours" src={this.props.categoryIcon} />
                   </li>
                   <li>
-                    <i className="material-icons left-align">child_friendly</i>
+                    {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null } 
                   </li>
                   <li>
-                    <i className="material-icons left-align">adb</i>
+                    {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
                   </li>
                   <li>
-                    <i className="material-icons left-align">filter_3</i>
+                    <i className="material-icons left-align">{this.props.level}</i>
                   </li>
                 </ul>
               </div>
@@ -34,8 +34,8 @@ var GoCard = React.createClass({
             <h6>cretated by:</h6>
             
             <div className="chip">
-              <img src="images/yuna.jpg" alt="Contact Person" />
-              Jane Doe
+              <img src={this.props.creatorImg} />
+              {this.props.creatorName}
             </div>
         
         </div>
