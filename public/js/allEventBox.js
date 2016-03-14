@@ -24,7 +24,7 @@ var AllEventBox = React.createClass({
       });
     
     return (
-      <div>
+      <div className="row">
         {eventMap}
       </div>
       )

@@ -23,7 +23,7 @@ var GoCard = React.createClass({
                     {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
                   </li>
                   <li>
-                    <i className="material-icons left-align">{this.props.level}</i>
+                    <p>{this.props.level}</p>
                   </li>
                 </ul>
               </div>
@@ -36,6 +36,10 @@ var GoCard = React.createClass({
             <div className="chip">
               <img src={this.props.creatorImg} />
               {this.props.creatorName}
+            </div>
+
+            <div className="chip">
+              {this.props.joiners.length} people have joined this event
             </div>
         
         </div>
