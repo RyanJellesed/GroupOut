@@ -7,6 +7,7 @@ router.route('/')//post a new blog post
 		var category = new Category();
 		category.name = req.body.name;
 		category.img = req.body.img;
+		category.icon = req.body.icon;
 
 		category.save(function(err, category){
 			if(err){

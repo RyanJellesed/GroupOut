@@ -6,26 +6,27 @@ var GoCard = React.createClass({
           
           <div className="card-image">
             <img src={this.props.img} />
-            <span className="card-title">{this.props.title}</span>
+            <span className="card-title">{this.props.title} </span>
+         
+        
           </div>
           
             <div className="card-content valign">
               <div>
                 <div className="valign-wrapper" >
-                <ul className="valign-wrapper">
-                  <li>
-                    <img className="icon-ours" src={this.props.categoryIcon} />
-                  </li>
-                  <li>
-                    {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null } 
-                  </li>
-                  <li>
-                    {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
-                  </li>
-                  <li>
-                    <p>{this.props.level}</p>
-                  </li>
-                </ul>
+                  <ul className="valign-wrapper">
+                      <li>
+                        <img className="icon-ours" src={this.props.categoryIcon} />
+                      </li>
+                      <li>
+                        {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null } 
+                      </li>
+                      <li>
+                        {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
+                      </li>
+                      <li className="right">   <img className="icon-ours-level" src={this.props.levelIcon} />
+                      </li>
+                  </ul>
               </div>
             </div>
           

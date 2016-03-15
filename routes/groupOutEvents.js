@@ -18,7 +18,7 @@ router.route ('/')
 	        event.location = req.body.location || "everywhere" ;
 	        event.date = req.body.date || "12/12/16" ;
 	        event.time = req.body.time || "6:00 am" ;
-	        event.level = req.body.level || "expert" ;
+	        event.level = req.body.level || "56e83bbf8d87b91416d58bbd" ;
 	        event.petFriendly = req.body.petFriendly || true;
 	        event.familyFriendly = req.body.familyFriendly || true;
 	        console.log("Creating Event Working", event);
@@ -36,6 +36,7 @@ router.route ('/')
     	GoEvent.find()
     	.populate('creator')
         .populate('category')
+        .populate('level')
     	.exec(function(err, goevent){
             if(err){
                 console.log(err)
