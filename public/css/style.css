@@ -12,11 +12,15 @@
 .icon-ours {
 	height: 50px;
 	width: 50px;
-	padding: 5px;
-	padding-right: 10px;
+
 }
 
 .icon-ours-level {
-	height: 60px;
-	width: 60px;
+	height: 62px;
+	width: 62px;
 }
+
+ #map {
+       width: 500px;
+       height: 400px;
+     }
