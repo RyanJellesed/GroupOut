@@ -2,14 +2,18 @@ var path = require('path');
 var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    './client/goEventApp'
-  ],
-  output: {
-    path: path.join(__dirname, 'static'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
-  },
+  entry: {
+  main:[
+   './client/goEventApp'
+ ],
+  form:[
+   './client/formBox'
+ ]},
+ output: {
+   path: path.join(__dirname, 'static'),
+   filename: '[name].js',
+   publicPath: '/static/'
+ },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({

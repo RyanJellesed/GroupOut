@@ -42,113 +42,25 @@
           </div>
         </nav>
       </container> <!-- end nav container -->
-     <div className="container">
-      	<h2>CREATE YOUR GO EVENT!</h2>
-     </div>
-     <div class="container">
-      	<div class="row">
-   		  <form class="col s12">
-      		<div class="row">
-        	<div class="input-field col s12">
-          <input placeholder="Killer Outing" id="title" type="text" class="validate">
-          <label for="title">Name your GO!</label>
-        	</div>
-      		</div> <!-- end row--> 
-     	    <div class="row">
-	        	<div class="input-field col s6">
-	          		<select class="icons">
-	          		<option value = "" disabled selected> What kind of GO!</option>
-	          		<option value = "" data-icons="./icons/mountain-biking.svg">Mountain Biking</option>
-	          		<option value = "" data-icons="./icons/running.svg"> Running</option>
-	          		</select>
-	          		<label>Pick your category</label>	
-	        	</div>
-	        	<div class="input-field col s6">
-	          		<select class="icons">
-	          		<option value = "" disabled selected> How hard is your GO</option>
-	          		<option value = "" data-icons="img/dog.jpg" class="circle">Easy</option>
-	          		<option value = "" data-icons="./img/dog.jpg" class="circle"> Medium</option>
-	          		<option value = "" data-icons="../img/dog.jpg" class="circle"> Hard</option>
-	          		</select>
-	          		<label>Pick the difficulty</label>
-	        	</div>
-	 		</div> <!-- end row-->
+    
+  <div id="formbox">
+  </div>
 
-	 		<div class="row">
-        	<div class="input-field col s12">
-          <input placeholder="Location" id="location" type="text" class="validate">
-          <label for="title">Where's your GO!</label>
-        	</div>
-      		</div> <!-- end row-->  
-
-
-
-      <div class="container" id="map"></div>
-
-
-      		<div class="row">
-	        	<div class="input-field col s12">
-	          <input placeholder="Description" id="description" type="text" class="validate">
-	          <label for="title">Describe your GO</label>
-	        	</div>
-      		</div> <!-- end row-->  
-
-      		<div class="row">
-	        	<div class="input-field col s6">
-				 <input id="date" type="date" class="datepicker">
-	        	</div>
-	        	<div class="input-field col s6">
-	          <input placeholder="Time" id="time" type="text">
-	          <label for="title">Time of your GO</label>
-	        	</div>
-      		</div> <!-- end row--> 
-
-      		<div class="row">
-	        	<div class="input-field col s6">
-	          		<form action="#">
-	          		 <input type = "checkbox" id="family-friendly" />
-	          		 <label for = "Family Friendly">Is your Go Family Friendly?</label>
-	          		</form>	
-	        	</div>
-	        	<div class="input-field col s6">
-	          		<form action="#">
-	          		 <input type = "checkbox" id="family-friendly" />
-	          		 <label for = "Pet Friendly">Is your Go Pet Friendly?</label>
-	          		</form>
-	        	</div>
-	 		</div> <!-- end row-->
-	 		<div class="row">
-		 		<div class="container">
-		 			<a class="waves-effect waves-light btn-large"> <i class="material-icons right">send </i>SAVE GO </a>
-		 		</div>
-		 	</div> <!-- end row -->
-	 		
-
-    </div> <!--end form container div -->
-
- 	 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ 	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       
       <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
 
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      
     
       <script type="">$(document).ready(function(){
       $('.slider').slider({full_width: true});
-        });</script>
-
-      <script type="">$(document).ready(function(){
       $('.parallax').parallax();
-        });</script>
-       <script type="">$(document).ready(function() {
     	$('select').material_select();
-  		}); </script>
-     <script src="https://fb.me/react-0.13.3.js"></script>
-     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
-     <script type="text/jsx" src="js/goCard.js"></script>
-     <script type="text/jsx" src="js/allEventBox.js"></script>
-     <script type="text/jsx" src="js/goEventApp.js"></script>
+  		}); 
+      </script>
+
      <script>
     	function initMap() {
        	var mapDiv = document.getElementById('map');
@@ -156,6 +68,8 @@
          center: {lat: 44.540, lng: -78.546},
          zoom: 8 }); }
    	</script>
-   	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+   <!-- 	// <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script> -->
+
+   <script type="text/javascript" src="./static/form.js"></script>
      </body>
 </html>

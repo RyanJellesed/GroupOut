@@ -3,13 +3,18 @@ var webpack = require('webpack');
 
 module.exports = {
  devtool: 'eval',
- entry: [
+ entry: {
+  main:[
    'webpack-hot-middleware/client',
    './client/goEventApp'
  ],
+  form:[
+   'webpack-hot-middleware/client',
+   './client/formBox'
+ ]},
  output: {
    path: path.join(__dirname, 'static'),
-   filename: 'bundle.js',
+   filename: '[name].js',
    publicPath: '/static/'
  },
  plugins: [
