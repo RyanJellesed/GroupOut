@@ -1,6 +1,4 @@
-'use strict';
-
-Globals.Map = React.createClass({
+Map = React.createClass({
 
   propTypes: {
     mapId: React.PropTypes.string.isRequired,
@@ -35,10 +33,9 @@ Globals.Map = React.createClass({
   },
 
   render() {
-    return (
-      <div id="map-container">
-        {this.state.map ? this.props.children : null}
-      </div>
-    )
+    const children = this.state.map ? this.props.children : null;
+    return <div id="map-container">{children}</div>
   }
 });
+
+
