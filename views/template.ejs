@@ -1,47 +1,28 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
   <html>
     <head>
       <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-      <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" />
+     
       <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      
+      <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+      
+      <link href="https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css" />
+
+      <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css" />
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link href="../css/style.css" rel="stylesheet">
+      
     </head>
 
     <body>
 
-      <container>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">Signup</a></li>
-          <li><a href="#!">Group Outs</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">Create Group Out</a></li>
-          <li><a href="#!">Profile</a></li>
-        </ul>
-        <nav>
-          <div class="nav-wrapper blue-grey darken-2">
-            <a id="logo" href="#!" class="brand-logo">Group Out!</a>
-            </ul>
-            <ul class="right">
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a></li>
-            </ul>
-            <ul class="right hide-on-med-and-down">
-              <li><a href=""><i class="material-icons">directions_run</i></a></li>
-              <li><a href=""><i class="material-icons">fitness_center</i></a></li>
-              <li><a href=""><i class="material-icons">directions_bike</i></a></li>
-              <!-- Dropdown Trigger -->
-              
-            
-          </div>
-        </nav>
-      </container> <!-- end nav container -->
+    <%- include('partial/navbar', { active: 'template' }); %>
+      
 
         <div class="slider">
           <ul class="slides">
@@ -88,6 +69,9 @@
 
           </ul>
         </div> <!-- end slider -->
+
+        
+
 
         <div class="container">
           <div class="row">
@@ -288,8 +272,10 @@
                 </div>
               </div>
             </div>
+            </div>
           </div> <!-- end card container -->
-      <footer class="page-footer blue-grey darken-2">
+
+     <footer class="page-footer blue-grey darken-2">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -309,7 +295,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2016 Copyright Text
+            © 2014 Copyright Text
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
@@ -325,6 +311,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script type="text/javascript" src="../js/materialize.min.js"></script>
     
+
+      <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+      <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js"></script>
+      <script>
+        L.mapbox.acessToken = 'spk.eyJ1IjoicnlhbmplbGxlc2VkIiwiYSI6ImNpbHYwa21idjAxZ2V2Z2tzemViM3JlbngifQ.jZC58IvhNnH039OGw5UVFQ'
+      </script>
+
       <script type="">$(document).ready(function(){
       $('.slider').slider({full_width: true});
         });</script>
@@ -335,5 +328,3 @@
 
     </body>
   </html>
-
- 
