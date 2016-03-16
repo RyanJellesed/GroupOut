@@ -1,3 +1,6 @@
+var React = require('react');
+var GoCard = require('./goCard');
+
 var AllEventBox = React.createClass({
   render: function() {
     console.log(this.props.events);
@@ -30,3 +33,5 @@ var AllEventBox = React.createClass({
       )
     }
 });
+
+module.exports = AllEventBox;

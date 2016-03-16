@@ -1,3 +1,8 @@
+var AllEventBox = require('./allEventBox');
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+
 var GoEventApp = React.createClass({
   propTypes: {
         url: React.PropTypes.string.isRequired
@@ -26,7 +31,7 @@ var GoEventApp = React.createClass({
         console.log("componentDidMount fired");
         this.loadEventsFromServer()
     },
-  render: function() {
+    render: function() {
     return (
       <div>
         <AllEventBox events={this.state.events} />
@@ -37,6 +42,6 @@ var GoEventApp = React.createClass({
 });
 
 
-React.render(<GoEventApp url="/api/event/" />,
+ReactDOM.render(<GoEventApp url="/api/event/" />,
   document.getElementById('goCard-app-all'));
 

@@ -1,3 +1,5 @@
+var React = require('react');
+
 var GoCard = React.createClass({
   render: function() {
     return (
@@ -15,16 +17,17 @@ var GoCard = React.createClass({
               
 
             <div className="row">
-              <div className="col s9 valign-wrapper">
-                        <img className="icon-ours" src={this.props.categoryIcon} />
+              <div className="col s7 valign-wrapper">
+                  <img className="icon-ours-level" src={this.props.categoryIcon} />
+                  <img className="icon-ours-level left" src={this.props.levelIcon} />
+              </div>
+              <div className="right">
+                        
                         {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null }
                         {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
               </div>
-              <div className="col s3">
-                  <img className="icon-ours-level right" src={this.props.levelIcon} />
-              </div>
             </div>  
-            <p>"Local running group that meets every Thursday for a great fun run and social drink after."</p>
+            <p>{this.props.description}</p>
             <div className="divider"></div>
             <h6>created by:</h6>
             
@@ -48,5 +51,6 @@ var GoCard = React.createClass({
     }
 });
 
+module.exports = GoCard;
 
 

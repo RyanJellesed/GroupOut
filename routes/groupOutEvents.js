@@ -14,7 +14,7 @@ router.route ('/')
 	        //event.joiner = req.user._id || '56e33080165166d5a84a3098';
 	        event.title = req.body.title || "great new event";
 	        event.category= req.body.category || "56e6f44934fa6508113882ef";
-	        event.description = req.body.description || "we're goin mountain biking";
+	        event.description = req.body.description;
 	        event.location = req.body.location || "everywhere" ;
 	        event.date = req.body.date || "12/12/16" ;
 	        event.time = req.body.time || "6:00 am" ;
