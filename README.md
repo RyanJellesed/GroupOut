@@ -53,3 +53,5 @@
                    <a href="#">View Group Out</a>
                  </div>
                </div>
+
+dog walking icon by Yazzer Perez!

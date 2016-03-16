@@ -1,16 +1,98 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-pink.min.css">
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="../css/style.css" rel="stylesheet">
+    </head>
 
-<html>
-<head>
-    <title>Node Authentication - HOME PAGE</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <!-- Compiled and minified CSS -->
-  
-    <style>
-        body        { padding-top:80px; }
-    </style>
-</head>
-<body>
+    <body>
+
+      <container>
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">Signup</a></li>
+          <li><a href="#!">Group Outs</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Create Group Out</a></li>
+          <li><a href="#!">Profile</a></li>
+        </ul>
+        <nav>
+          <div class="nav-wrapper blue-grey darken-2">
+            <a id="logo" href="#!" class="brand-logo">Group Out!</a>
+            </ul>
+            <ul class="right">
+              <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a href=""><i class="material-icons">directions_run</i></a></li>
+              <li><a href=""><i class="material-icons">fitness_center</i></a></li>
+              <li><a href=""><i class="material-icons">directions_bike</i></a></li>
+              <!-- Dropdown Trigger -->
+              
+            
+          </div>
+        </nav>
+      </container> <!-- end nav container -->
+
+        <div class="slider">
+          <ul class="slides">
+
+            <li>
+              <img src="../img/woman.jpg"> 
+              <div class="caption left-align">
+                <h2>GO</h2>
+                <h3>Into The Unknown</h3>
+                <a href="/auth/facebook" class="waves-effect waves-light btn-large">log in with <span class="fa fa-facebook-square fa-2x"></span></a>
+              </div>
+            </li>
+
+            <li>
+              <img src="../img/shoes.jpg"> 
+              <div class="caption right-align">
+                <h2>GO</h2>
+                <h3 class="light grey-text text-lighten-3">Somewhere New</h3>
+                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
+              </div>
+            </li>
+
+            <li>
+              <img src="../img/girl.jpg"> 
+              <div class="caption left-align">
+                <h2>GO</h2>
+                <h3 class="light grey-text text-lighten-3">Discover The World</h3>
+                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
+              </div>
+            </li>
+
+            <li>
+              <img src="../img/tourism.jpg"> 
+              <div class="caption center-align">
+                <h2>GO</h2>
+                <h3 class="light grey-text text-lighten-5">Against The Status Quo</h3>
+                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
+              </div>
+            </li>
+
+            <li>
+              <img src="../img/mountain-bike.jpg"> 
+              <div class="caption left-align bottom ">
+                <h2>GO</h2>
+                <h3 class="light grey-text text-lighten-3">Find An Adventure</h3>
+                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
+              </div>
+            </li>
+
+          </ul>
+        </div> <!-- end slider -->
 <script>
  window.fbAsyncInit = function() {
    FB.init({
@@ -28,26 +110,41 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
+<div>
 
-<div class="container">
-
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
-
-        <p>Login or Register with:</p>
-
-        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
-
-        <div
- class="fb-like"
- data-share="true"
- data-width="450"
- data-show-faces="true">
 </div>
 
+
+    <div class="container" id="goCard-app-all">
+        <div class="row">
+        </div>
     </div>
 
-</div>
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      
+      <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+    
+      <script type="">$(document).ready(function(){
+      $('.slider').slider({full_width: true});
+        });</script>
+
+      <script type="">$(document).ready(function(){
+      $('.parallax').parallax();
+        });</script>
+
+      <script src="https://fb.me/react-0.13.3.js"></script>
+      <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+
+      
+      
+      <script type="text/jsx" src="js/goCard.js"></script>
+      <script type="text/jsx" src="js/allEventBox.js"></script>
+      <script type="text/jsx" src="js/goEventApp.js"></script>
 </body>
 
 <!-- Compiled and minified JavaScript -->

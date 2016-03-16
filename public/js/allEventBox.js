@@ -4,16 +4,18 @@ var AllEventBox = React.createClass({
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
             <GoCard
-              creator = {oneEvent.creator}
+              creatorName = {oneEvent.creator.facebook.name}
+              creatorImg = {oneEvent.creator.facebook.picture}
               joiners = {oneEvent.joiners}   
               category = {oneEvent.category.name}    
               img = {oneEvent.category.img}
+              categoryIcon = {oneEvent.category.icon}
               title = {oneEvent.title}
               description = {oneEvent.description}
               location = {oneEvent.location}
               date = {oneEvent.date}
               time = {oneEvent.time}
-              level = {oneEvent.level}
+              levelIcon = {oneEvent.level.icon}
               petFriendly = {oneEvent.petFriendly}
               familyFriendly = {oneEvent.familyFriendly}
               comments = {oneEvent.comments}
@@ -22,7 +24,7 @@ var AllEventBox = React.createClass({
       });
     
     return (
-      <div>
+      <div className="row">
         {eventMap}
       </div>
       )

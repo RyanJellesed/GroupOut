@@ -16,3 +16,4 @@ var CardIcons = React.createClass({
 	}
 });
 
+//Can delete - all info in goCard.js

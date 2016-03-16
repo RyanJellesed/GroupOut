@@ -9,3 +9,18 @@
       height: 500px;
     }
 
+.icon-ours {
+	height: 50px;
+	width: 50px;
+
+}
+
+.icon-ours-level {
+	height: 62px;
+	width: 62px;
+}
+
+ #map {
+       width: 500px;
+       height: 400px;
+     }

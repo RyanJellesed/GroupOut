@@ -11,6 +11,7 @@ var flash = require('connect-flash');
 var userRouter = require ('./routes/users');
 // var commentRouter = require ('./routes/comments');
 var categoriesRouter = require ('./routes/categories');
+var levelRouter = require ('./routes/levels');
 var groupOutEventRouter = require ('./routes/groupOutEvents');
 
 var userInfo  = require('./models/user'); //users profile
@@ -18,6 +19,7 @@ var userInfo  = require('./models/user'); //users profile
 var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
 var category = require('./models/category');
+var level = require('./models/level');
 
 
 
@@ -56,9 +58,9 @@ app.get('./partial', function(req,res){
 });
 
 
-app.get('/goevent', function(req, res){
+app.get('/goeventcreate', function(req, res){
 	var user = req.user || "no user";
-		res.render('goevent', {user: user});
+		res.render('goeventcreate', {user: user});
 });
 
 app.get('/template', function(req,res) {
@@ -84,6 +86,7 @@ var port = process.env.PORT || 6060; // this sets the port we are going to use
 //  
 // app.use('/api/comments', commentRouter );
 app.use('/api/categories', categoriesRouter );
+app.use('/api/levels', levelRouter );
 app.use('/api/user', userRouter );
 
 app.use('/api/event', groupOutEventRouter);

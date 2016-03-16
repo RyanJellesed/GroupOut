@@ -6,36 +6,35 @@ var GoCard = React.createClass({
           
           <div className="card-image">
             <img src={this.props.img} />
-            <span className="card-title">{this.props.title}</span>
+            <span className="card-title">{this.props.title} </span>
+              
+         
           </div>
           
             <div className="card-content valign">
-              <div>
-                <div className="valign-wrapper" >
-                <ul className="valign-wrapper">
-                  <li>
-                    <i className="material-icons left-align">directions_bike</i>
-                  </li>
-                  <li>
-                    <i className="material-icons left-align">child_friendly</i>
-                  </li>
-                  <li>
-                    <i className="material-icons left-align">adb</i>
-                  </li>
-                  <li>
-                    <i className="material-icons left-align">filter_3</i>
-                  </li>
-                </ul>
+              
+
+            <div className="row">
+              <div className="col s9 valign-wrapper">
+                        <img className="icon-ours" src={this.props.categoryIcon} />
+                        {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null }
+                        {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
               </div>
-            </div>
-          
+              <div className="col s3">
+                  <img className="icon-ours-level right" src={this.props.levelIcon} />
+              </div>
+            </div>  
             <p>"Local running group that meets every Thursday for a great fun run and social drink after."</p>
-          
-            <h6>cretated by:</h6>
+            <div className="divider"></div>
+            <h6>created by:</h6>
             
             <div className="chip">
-              <img src="images/yuna.jpg" alt="Contact Person" />
-              Jane Doe
+              <img src={this.props.creatorImg} />
+              {this.props.creatorName}
+            </div>
+
+            <div className="chip">
+              {this.props.joiners.length} people have joined this event
             </div>
         
         </div>
