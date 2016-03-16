@@ -1,13 +1,6 @@
-
-
 #logo {
   padding-left: 40px;
 }
-
-
-.parallax-container {
-      height: 500px;
-    }
 
 .icon-ours {
 	height: 50px;
@@ -24,3 +17,7 @@
        width: 500px;
        height: 400px;
      }
+
+#map-container {
+  height: 500px;
+}
