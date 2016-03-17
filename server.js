@@ -89,8 +89,11 @@ app.use(express.static('public')); //  configures to use all the files in the pu
 
 
 app.set('view engine', 'ejs');
+
+var FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || '1732046997082547';
+
 app.get('/', function(req,res){
-  res.render('index');
+  res.render('index', {FACEBOOK_APP_ID: FACEBOOK_APP_ID});
 });
 app.get('./partial', function(req,res){
   res.render('navbar');
