@@ -14,7 +14,7 @@ var categoriesRouter = require ('./routes/categories');
 var levelRouter = require ('./routes/levels');
 var groupOutEventRouter = require ('./routes/groupOutEvents');
 
-var userInfo  = require('./models/user'); //users profile
+userInfo  = require('./models/user'); //users profile
 
 var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
