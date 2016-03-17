@@ -2,8 +2,17 @@ var express    = require('express'); // makes sure the express library can be us
 var app        = express();
 var bodyParser = require('body-parser'); // body parser is a package and the 'require' says to pull in body-parser into express
 var passport = require('passport');
-var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost/groupOut');
+var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
+
+var options = {
+server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};  
+var mongodbUri = process.env.MONGOLAB_URI || "mongodb://localhost/groupOut";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongooseUri, options);
 
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -14,7 +23,7 @@ var categoriesRouter = require ('./routes/categories');
 var levelRouter = require ('./routes/levels');
 var groupOutEventRouter = require ('./routes/groupOutEvents');
 
-userInfo  = require('./models/user'); //users profile
+var userInfo  = require('./models/user'); //users profile
 
 var comment  = require('./models/comment'); //the comment on the Event page
 var groupOutEvent = require ('./models/groupOutEvent');
