@@ -7,7 +7,7 @@ module.exports = {
    './client/goEventApp'
  ],
   form:[
-   './client/formBox'
+   './client/formApp'
  ]},
  output: {
    path: path.join(__dirname, 'static'),

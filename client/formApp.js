@@ -1,11 +1,15 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var injectTapEventPlugin = require("react-tap-event-plugin");
+var DropDowns = require('./drpdowns');
+
+injectTapEventPlugin();
 
 var FormBox = React.createClass({
 	getInitialState: function() {
     	return {
-    		category       : {},
-        	level          : {},
+    		categories     : [],
+        	levels         : [],
         	title          : "",
         	description    : "", 
         	location       : "",
@@ -16,10 +20,10 @@ var FormBox = React.createClass({
     	}
     },
     handleCategoryChange: function(e) {
-    	this.setState({category: e.target.value});
+    	this.setState({categories: e.target.value});
     },
     handleLevelChange: function(e) {
-    	this.setState({level: e.target.value});
+    	this.setState({levels: e.target.value});
     },
     handleTitleChange: function(e) {
     	this.setState({title: e.target.value});
@@ -65,7 +69,6 @@ var FormBox = React.createClass({
         	familyFriendly : familyFriendly,
         })
         this.setState({
-    		rn {
     		category       : {},
         	level          : {},
         	title          : "",
@@ -88,6 +91,9 @@ var FormBox = React.createClass({
 			          		 <label>Name your GO!</label>
 			        		</div>
 			      	</div> 
+			      	<div>
+				      	<DropDowns categories={this.props.categories} levels={this.props.levels} />
+				    </div>
 
 			     	<div className="row">
 				       <div className="input-field col s6">
@@ -138,16 +144,16 @@ var FormBox = React.createClass({
 
 			      	<div className="row">
 				        <div className="input-field col s6">
-				          	<form action="#">
+				          	
 				          		 <input type = "checkbox" id="family-friendly" />
 				          		 <label for = "Family Friendly">Is your Go Family Friendly?</label>
-				          	</form>	
+				          	
 				        </div>
 				        <div className="input-field col s6">
-				          	<form action="#">
+				          	
 				          		<input type = "checkbox" id="family-friendly" />
 				          		<label for = "Pet Friendly">Is your Go Pet Friendly?</label>
-				          	</form>
+				          	
 				        </div>
 				 	</div> 	 		
 				 	<div className="row">
@@ -165,6 +171,35 @@ var FormBox = React.createClass({
 });
 
 var FormApp = React.createClass({
+
+	getInitialState: function () {
+        return {
+            categories: [],
+            levels: [],
+        }
+    },
+	loadLevelsFromServer: function() {
+		var self = this;
+		console.log('trying to load levels from server');
+		$.ajax({
+			url: '/api/levels',
+			method: 'GET'
+		}).done(function(levels) {
+			console.log(levels);
+			self.setState({levels : levels})
+		})
+	},
+	loadCategoriesFromServer: function() {
+		var self = this;
+		console.log('trying to load categories from server');
+		$.ajax({
+			url: '/api/categories',
+			method: 'GET'
+		}).done(function(categories) {
+			console.log(categories);
+			self.setState({categories : categories})
+		})
+	},
     eventSubmit: function(event){
          var self = this;
          $.ajax({
@@ -178,16 +213,20 @@ var FormApp = React.createClass({
         	alert('no go bro!')
         })
     },
+    componentDidMount: function() {
+        console.log('componentDidMount fired');
+        this.loadLevelsFromServer();
+        this.loadCategoriesFromServer();
+    },
     render: function() {
+        console.log('trying to render');
         return (
             <div>
-                <FormBox />
+                <FormBox categories={this.state.categories} levels={this.state.levels} />
             </div>
             )
     }
 
 });
-
-React.render(<App/>, document.getElementById('app'));
 
 ReactDOM.render(<FormApp />, document.getElementById('formbox'));

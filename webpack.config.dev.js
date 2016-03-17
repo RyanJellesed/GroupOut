@@ -10,7 +10,7 @@ module.exports = {
  ],
   form:[
    'webpack-hot-middleware/client',
-   './client/formBox'
+   './client/formApp',
  ]},
  output: {
    path: path.join(__dirname, 'static'),
