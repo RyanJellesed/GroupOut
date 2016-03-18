@@ -5,6 +5,23 @@ var Catagory = require('../models/category')
 
 
 
+  router.route('/getUser')
+    .get(function(req, res){
+      if(req.user){
+        User.findById(req.user._id, function(err, user){
+          if(err){
+            console.log(err)
+          } else {
+            res.json(user)
+          }
+        })
+      } else {
+        res.json({user: "no user"})
+      }
+    })
+
+
+
 router.route('/:user_id')
   .get(function(req, res) {
     User.findById(req.params.user_id)

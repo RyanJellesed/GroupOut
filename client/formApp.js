@@ -15,8 +15,7 @@ var FormBox = React.createClass({
         	location       : "",
         	date           : "",
         	time           : "",
-        	petFriendly    : false,
-        	familyFriendly : false,
+
     	}
     },
     handleCategoryChange: function(e) {
@@ -40,12 +39,8 @@ var FormBox = React.createClass({
     handleTimeChange: function(e) {
     	this.setState({time: e.target.value});
     },
-    handlePetFriendlyChange: function(e) {
-    	this.setState({time: e.target.value});
-    },
-    handleFamilyFriendlyChange: function(e) {
-    	this.setState({time: e.target.value});
-    },
+
+ 
     handleSubmit: function(e) {
     	e.preventDefault();
     	var category = this.state.category;
@@ -55,8 +50,9 @@ var FormBox = React.createClass({
         var location = this.state.location.trim();
         var date = this.state.date.trim();
         var time = this.state.time.trim();
-        var petFriendly = this.state.petFriendly;
-        var familyFriendly = this.state.familyFriendly;
+        var petFriendly = $("#pet-friendly").is(":checked");
+        var familyFriendly = $("#family-friendly").is(":checked");
+        console.log("Trying to Submit");
     	this.props.eventSubmit({
     		category       : category,
         	level          : level,
@@ -76,49 +72,35 @@ var FormBox = React.createClass({
         	location       : "",
         	date           : "",
         	time           : "",
-        	petFriendly    : false,
-        	familyFriendly : false,
+
     	});
     },
 	render: function() {
 	    return (
+
 			<div className="container">
+					<div className="col s12">
+						<h4>CREATE YOUR GROUP OUT </h4>	
+					</div>
+					<div className="divider"></div>
+
 			    <div className="row">
-			   	  <form className="col s12">
+			   	  <form onSubmit={this.handleSubmit} className="col s12">
+			   	  <div className="row"></div>
 			      	<div className="row">
 			        		<div className="input-field col s12">
-			         		 <input placeholder="Killer Outing" id="title" type="text" className="validate" />
+			         		 <input onChange={this.handleTitleChange} value={this.state.title}  placeholder="Killer Outing" id="title" type="text" className="validate" />
 			          		 <label>Name your GO!</label>
 			        		</div>
 			      	</div> 
-			      	<div>
-				      	<DropDowns categories={this.props.categories} levels={this.props.levels} />
-				    </div>
+			      	
 
-			     	<div className="row">
-				       <div className="input-field col s6">
-				          		<select className="icons">
-				          		<option value = "" disabled selected> What kind of GO!</option>
-				          		<option value = "" data-icons="./icons/mountain-biking.svg">Mountain Biking</option>
-				          		<option value = "" data-icons="./icons/running.svg"> Running</option>
-				          		</select>
-				          		<label>Pick your category</label>	
-				        </div>
-				        <div className="input-field col s6">
-				          		<select className="icons">
-				          		<option value = "" disabled selected> How hard is your GO</option>
-				          		<option value = "" data-icons="img/dog.jpg" className="circle">Easy</option>
-				          		<option value = "" data-icons="./img/dog.jpg" className="circle"> Medium</option>
-				          		<option value = "" data-icons="../img/dog.jpg" className="circle"> Hard</option>
-				          		</select>
-				          		<label>Pick the difficulty</label>
-				        </div>
-			 
-				 	</div>
+				    <DropDowns categories={this.props.categories} levels={this.props.levels} />
+				    
 
 				 	<div className="row">
 			        	<div className="input-field col s12">
-			          		<input placeholder="Location" id="location" type="text" className="validate" />
+			          		<input onChange={this.handleLocationChange} value={this.state.location} placeholder="Location" id="location" type="text" className="validate" />
 			          		<label>Wheres your GO!</label>
 			        	</div>
 			      	</div>  
@@ -127,38 +109,41 @@ var FormBox = React.createClass({
 
 			      	<div className="row">
 				     	<div className="input-field col s12">
-				          <input placeholder="Description" id="description" type="text" className="validate" />
+				          <input onChange ={this.handleDescriptionChange} value={this.state.description} placeholder="Description" id="description" type="text" className="validate" />
 				          <label for="title">Describe your GO</label>
 				        </div>
 			      	</div>  
 
 			      	<div className="row">
 				        <div className="input-field col s6">
-							 <input id="date" type="date" className="datepicker" />
+							 <input onChange={this.handleDateChange} value={this.state.date} id="date" type="date" className="datepicker" />
 				        </div>
 				        <div className="input-field col s6">
-				          <input placeholder="Time" id="time" type="text" />
-				          <label for="title">Time of your GO</label>
+				          <input onChange={this.handleTimeChange} value={this.state.time} placeholder="Time" id="time" type="text" />
+				          <label>Time of your GO</label>
 				        </div>
 			      	</div> 
 
 			      	<div className="row">
 				        <div className="input-field col s6">
 				          	
-				          		 <input type = "checkbox" id="family-friendly" />
-				          		 <label for = "Family Friendly">Is your Go Family Friendly?</label>
+				          		 <input type="checkbox" id="pet-friendly" />
+				          		 <label htmlFor="pet-friendly"> Is your Go Pet Friendly?</label>
 				          	
 				        </div>
 				        <div className="input-field col s6">
 				          	
-				          		<input type = "checkbox" id="family-friendly" />
-				          		<label for = "Pet Friendly">Is your Go Pet Friendly?</label>
+				          		<input type ="checkbox" id="family-friendly" />
+				          		<label htmlFor="family-friendly"> Is your Go Family Friendly?</label>
 				          	
 				        </div>
+				        <div className="row"></div>
+				        <div className="divider"></div>
 				 	</div> 	 		
 				 	<div className="row">
-					 	<div className="container">
-					 		<a className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>SAVE GO </a>
+					 	<div className="col s12 container">
+					 		<button type="submit" className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>SAVE GO </button>
+					 		
 					 	</div>
 					</div> 
 				</form>
@@ -207,6 +192,7 @@ var FormApp = React.createClass({
             method: 'POST',
             data: event,
         }).done(function() {
+        	document.location = "/profile"
             console.log('posted event to server')
         }).fail(function(err){
         	console.log(err);
@@ -222,7 +208,7 @@ var FormApp = React.createClass({
         console.log('trying to render');
         return (
             <div>
-                <FormBox categories={this.state.categories} levels={this.state.levels} />
+                <FormBox eventSubmit={this.eventSubmit} categories={this.state.categories} levels={this.state.levels}  />
             </div>
             )
     }

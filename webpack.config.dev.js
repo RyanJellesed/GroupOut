@@ -6,12 +6,17 @@ module.exports = {
  entry: {
   main:[
    'webpack-hot-middleware/client',
-   './client/goEventApp'
+   './client/goEventApp',
  ],
   form:[
    'webpack-hot-middleware/client',
    './client/formApp',
- ]},
+ ],
+  profile:[
+  'webpack-hot-middleware/client',
+  './client/profileApp'
+  ]
+  },
  output: {
    path: path.join(__dirname, 'static'),
    filename: '[name].js',

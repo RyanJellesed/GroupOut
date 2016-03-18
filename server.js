@@ -100,10 +100,8 @@ app.get('./partial', function(req,res){
 });
 
 
-app.get('/goeventcreate', function(req, res){
-	var user = req.user || "no user";
-		res.render('goeventcreate', {user: user});
-});
+
+
 
 app.get('/template', function(req,res) {
   res.render('template');

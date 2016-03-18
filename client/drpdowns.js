@@ -18,13 +18,10 @@ var DropDownCategories= React.createClass({
         return <MenuItem value={e._id} primaryText={e.name} />
       })
         return (
-            <div className="row">
-              <div className="col s6">
+          
                 <SelectField value={this.state.value} onChange={this.handleChange}>
                   { actualValues }
                 </SelectField>
-              </div>
-            </div>
             )
     }
 
@@ -44,13 +41,11 @@ var DropDownLevels= React.createClass({
         return <MenuItem value={e._id} primaryText={e.name} />
       })
         return (
-            <div className="row">
-              <div className="col s6">
+              
                 <SelectField value={this.state.value} onChange={this.handleChange}>
                   { actualValues }
                 </SelectField>
-              </div>
-            </div>
+
             )
     }
 
@@ -59,9 +54,17 @@ var DropDownLevels= React.createClass({
 var DropDowns = React.createClass({
     render: function() {
         return (
-            <div>
-                <DropDownCategories categories={ this.props.categories } />
-                <DropDownLevels levels={this.props.levels} />
+            <div className="row">
+              <div className="input-field col s6">
+                  <p>What kind of GO is this?</p>
+                  <DropDownCategories categories={ this.props.categories } />
+                  
+              </div>
+              <div className="input-field col s6">   
+                  <p>How difficult is your GO?</p>
+                  <DropDownLevels levels={this.props.levels} />
+                  
+              </div>
             </div>
             )
     }

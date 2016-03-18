@@ -8,7 +8,11 @@ module.exports = {
  ],
   form:[
    './client/formApp'
- ]},
+ ],
+ profile: [
+  './client/profileApp'
+ ]
+  },
  output: {
    path: path.join(__dirname, 'static'),
    filename: '[name].js',
