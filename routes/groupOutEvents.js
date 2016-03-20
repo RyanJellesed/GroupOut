@@ -1,24 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var GoEvent = require('../models/groupOutEvent');
-var Comment = require('../models/comment')
+var Comment = require('../models/comment');
 
 router.route ('/')
     .post(function(req, res){
         var user = req.user || "no user";
         console.log(user);
         var event = new GoEvent();
-        	event.creator = '56e1aa50ce328313072914b6'; //temporarily using a valid ID for testing - remove when done testing.
+        	event.creator = '56e1dde0d92cc55807f20925'; //temporarily using a valid ID for testing - remove when done testing.
 	        //event.creator = req.user._id || '56e33080165166d5a84a3098';
-	        event.joiner = '56e1aa50ce328313072914b6';
+	        event.joiner = '56e1dde0d92cc55807f20925';
 	        //event.joiner = req.user._id || '56e33080165166d5a84a3098';
 	        event.title = req.body.title || "great new event";
-	        event.category= req.body.category || "56e6f44934fa6508113882ef";
+	        event.category= req.body.category || "56eacda31d1f01c44c3ac663";
 	        event.description = req.body.description;
 	        event.location = req.body.location || "everywhere" ;
 	        event.date = req.body.date || "12/12/16" ;
 	        event.time = req.body.time || "6:00 am" ;
-	        event.level = req.body.level || "56e83bbf8d87b91416d58bbd" ;
+	        event.level = req.body.level || "56eadcdc69fba8525560a63d" ;
 	        event.petFriendly = req.body.petFriendly || true;
 	        event.familyFriendly = req.body.familyFriendly || true;
 	        console.log("Creating Event Working", event);
@@ -102,7 +102,7 @@ router.route('/:event_id/comment')
 
         comment.event = req.params.event_id,
         // comment.commentor = req.params.commentor_id,
-        comment.commentor = "56e1aa50ce328313072914b6",
+        comment.commentor = "56e1dde0d92cc55807f20925",
         comment.commentBody = req.body.commentBody,
 
         console.log('event comments working');

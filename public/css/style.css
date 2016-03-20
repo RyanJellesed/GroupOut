@@ -1,5 +1,31 @@
-#logo {
-  padding-left: 40px;
+
+
+
+.blackback {
+	background-color: #000;
+}
+
+nav .brand-logoOURS {
+  position: absolute;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e5a72b;
+  display: inline-block;
+  font-size: 16pt;
+  padding: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 414px) {
+  nav .brand-logoOURS {
+    display: none;
+  }
+}
+
+.groupoutlogocenter {
+	position: absolute;
+	left: 50%;
 }
 
 .icon-ours {

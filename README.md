@@ -54,4 +54,9 @@
                  </div>
                </div>
 
+List of weekend things by SS.
+1. uploaded chip FB pic of GO icon for profile pics that aren't showing tho FB does have an unknown-user-id.jpg that it should redirect to - but would prefer to show GroupOut icon - either way, my profile pic not working - maybe permissions issue. 
+
+
+
 dog walking icon by Yazzer Perez!

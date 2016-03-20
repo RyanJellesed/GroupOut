@@ -25,7 +25,7 @@ var Catagory = require('../models/category')
 router.route('/:user_id')
   .get(function(req, res) {
     User.findById(req.params.user_id)
-    .populate('facebook.interests')
+    // .populate('facebook.interests') --SSOUT
     .exec(function(err, user) {
       if(err){
         console.log(err);
@@ -42,10 +42,10 @@ router.route('/:user_id')
       } else {
 
         // 56e1db38721f4726083665cd
-        var interests = '56e6f44934fa6508113882ef';
+        // var interests = '56e6f44934fa6508113882ef';
         
-        user.facebook.bio = req.body.bio ? req.body.bio : user.facebook.bio;
-        user.facebook.interests.push(interests);
+        // user.facebook.bio = req.body.bio ? req.body.bio : user.facebook.bio;
+        // user.facebook.interests.push(interests); --SSOUT lines 45,47&48
         
 
 
