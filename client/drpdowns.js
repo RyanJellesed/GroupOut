@@ -11,7 +11,8 @@ var DropDownCategories= React.createClass({
       }
     },
     handleChange: function(event, index, value) {
-      this.setState({value: value})
+      this.props.handleCatChange(value);
+      this.setState({value: value});
     },
     render: function() {
       var actualValues = this.props.categories.map(function(e){
@@ -34,7 +35,8 @@ var DropDownLevels= React.createClass({
       }
     },
     handleChange: function(event, index, value) {
-      this.setState({value: value})
+      this.props.handleLevelChange(value);
+      this.setState({value: value});
     },
     render: function() {
       var actualValues = this.props.levels.map(function(e){
@@ -57,12 +59,12 @@ var DropDowns = React.createClass({
             <div className="row">
               <div className="input-field col s6">
                   <p>What kind of GO is this?</p>
-                  <DropDownCategories categories={ this.props.categories } />
+                  <DropDownCategories handleCatChange={this.props.handleCategoryChange} categories={ this.props.categories } />
                   
               </div>
               <div className="input-field col s6">   
                   <p>How difficult is your GO?</p>
-                  <DropDownLevels levels={this.props.levels} />
+                  <DropDownLevels handleLevelChange={this.props.handleLevelChange} levels={this.props.levels} />
                   
               </div>
             </div>

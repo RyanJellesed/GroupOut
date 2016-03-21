@@ -12,15 +12,15 @@ router.route ('/')
 	        event.creator = req.user._id;
 	        // event.joiner = '56e1aa50ce328313072914b6';
 	        event.joiner = req.user._id;
-	        event.title = req.body.title || "great new event";
+	        event.title = req.body.title;
 	        event.category= req.body.category;
 	        event.description = req.body.description;
-	        event.location = req.body.location || "everywhere" ;
-	        event.date = req.body.date || "12/12/16" ;
-	        event.time = req.body.time || "6:00 am" ;
+	        event.location = req.body.location;
+	        event.date = req.body.date;
+	        event.time = req.body.time;
 	        event.level = req.body.level;
-	        event.petFriendly = req.body.petFriendly || true;
-	        event.familyFriendly = req.body.familyFriendly || true;
+	        event.petFriendly = req.body.petFriendly;
+	        event.familyFriendly = req.body.familyFriendly;
 	        console.log("Creating Event Working", event);
 
 	        event.save(function(err, event){

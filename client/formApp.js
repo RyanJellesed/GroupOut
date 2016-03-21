@@ -8,8 +8,8 @@ injectTapEventPlugin();
 var FormBox = React.createClass({
 	getInitialState: function() {
     	return {
-    		categories     : [],
-        	levels         : [],
+    		category       : {},
+            level          : {},
         	title          : "",
         	description    : "", 
         	location       : "",
@@ -18,11 +18,12 @@ var FormBox = React.createClass({
 
     	}
     },
-    handleCategoryChange: function(e) {
-    	this.setState({categories: e.target.value});
+    handleCategoryChange: function(thing) {
+    	this.setState({category: thing});
     },
-    handleLevelChange: function(e) {
-    	this.setState({levels: e.target.value});
+    handleLevelChange: function(thing) {
+    	this.setState({level: thing });
+        console.log(this.state.level);
     },
     handleTitleChange: function(e) {
     	this.setState({title: e.target.value});
@@ -52,7 +53,7 @@ var FormBox = React.createClass({
         var time = this.state.time.trim();
         var petFriendly = $("#pet-friendly").is(":checked");
         var familyFriendly = $("#family-friendly").is(":checked");
-        console.log("Trying to Submit");
+        console.log("Trying to Submit", category, level);
     	this.props.eventSubmit({
     		category       : category,
         	level          : level,
@@ -63,17 +64,8 @@ var FormBox = React.createClass({
         	time           : time,
         	petFriendly    : petFriendly,
         	familyFriendly : familyFriendly,
-        })
-        this.setState({
-    		category       : {},
-        	level          : {},
-        	title          : "",
-        	description    : "", 
-        	location       : "",
-        	date           : "",
-        	time           : "",
-
-    	});
+        });
+        
     },
 	render: function() {
 	    return (
@@ -95,7 +87,7 @@ var FormBox = React.createClass({
 			      	</div> 
 			      	
 
-				    <DropDowns categories={this.props.categories} levels={this.props.levels} />
+				    <DropDowns handleCategoryChange={this.handleCategoryChange} handleLevelChange={this.handleLevelChange} categories={this.props.categories} levels={this.props.levels} />
 				    
 
 				 	<div className="row">
@@ -185,12 +177,12 @@ var FormApp = React.createClass({
 			self.setState({categories : categories})
 		})
 	},
-    eventSubmit: function(event){
+    eventSubmit: function(goEvent){
          var self = this;
          $.ajax({
             url: '/api/event',
             method: 'POST',
-            data: event,
+            data: goEvent,
         }).done(function() {
         	document.location = "/profile"
             console.log('posted event to server')
