@@ -13,12 +13,12 @@ router.route ('/')
 	        // event.joiner = '56e1aa50ce328313072914b6';
 	        event.joiner = req.user._id;
 	        event.title = req.body.title || "great new event";
-	        event.category= req.body.category || "56e6f44934fa6508113882ef";
+	        event.category= req.body.category;
 	        event.description = req.body.description;
 	        event.location = req.body.location || "everywhere" ;
 	        event.date = req.body.date || "12/12/16" ;
 	        event.time = req.body.time || "6:00 am" ;
-	        event.level = req.body.level || "56e83bbf8d87b91416d58bbd" ;
+	        event.level = req.body.level;
 	        event.petFriendly = req.body.petFriendly || true;
 	        event.familyFriendly = req.body.familyFriendly || true;
 	        console.log("Creating Event Working", event);
