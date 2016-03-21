@@ -65,8 +65,7 @@ var FormBox = React.createClass({
         	familyFriendly : familyFriendly,
         })
         this.setState({
-    		category       : {},
-        	level          : {},
+    		
         	title          : "",
         	description    : "", 
         	location       : "",
