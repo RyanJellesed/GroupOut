@@ -8,10 +8,10 @@ router.route ('/')
         var user = req.user || "no user";
         console.log(user);
         var event = new GoEvent();
-        	event.creator = '56e1aa50ce328313072914b6'; //temporarily using a valid ID for testing - remove when done testing.
-	        //event.creator = req.user._id || '56e33080165166d5a84a3098';
-	        event.joiner = '56e1aa50ce328313072914b6';
-	        //event.joiner = req.user._id || '56e33080165166d5a84a3098';
+        	// event.creator = '56e1aa50ce328313072914b6'; //temporarily using a valid ID for testing - remove when done testing.
+	        event.creator = req.user._id;
+	        // event.joiner = '56e1aa50ce328313072914b6';
+	        event.joiner = req.user._id;
 	        event.title = req.body.title || "great new event";
 	        event.category= req.body.category || "56e6f44934fa6508113882ef";
 	        event.description = req.body.description;
