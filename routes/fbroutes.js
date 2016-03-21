@@ -3,8 +3,11 @@
 module.exports = function(app, passport) {
 
     // route for home page
-    app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
+    var FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || '1732046997082547';
+
+    app.get('/', function(req,res){
+      console.log('rendering / after login');
+      res.render('index', {FACEBOOK_APP_ID: FACEBOOK_APP_ID});
     });
 
     // route for login form

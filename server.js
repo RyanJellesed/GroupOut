@@ -92,7 +92,9 @@ app.set('view engine', 'ejs');
 
 var FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || '1732046997082547';
 
+
 app.get('/', function(req,res){
+  console.log('rendering /');
   res.render('index', {FACEBOOK_APP_ID: FACEBOOK_APP_ID});
 });
 app.get('./partial', function(req,res){
