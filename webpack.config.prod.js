@@ -11,8 +11,11 @@ module.exports = {
  ],
  profile: [
   './client/profileApp'
+ ],
+ goeventview:[
+  './client/goEventViewApp'
  ]
-  },
+ },
  output: {
    path: path.join(__dirname, 'static'),
    filename: '[name].js',

@@ -15,6 +15,10 @@ module.exports = {
   profile:[
   'webpack-hot-middleware/client',
   './client/profileApp'
+  ],
+  goeventview:[
+  'webpack-hot-middleware/client',
+  './client/goEventViewApp'
   ]
   },
  output: {

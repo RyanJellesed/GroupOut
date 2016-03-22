@@ -1,11 +1,11 @@
 var React = require('react');
 
-var GoCard = React.createClass({
+var GoEventFull = React.createClass({
   render: function() {
     return (
-      <div className="col s12 l4">
-        <div className="card hoverable">
-          
+      
+        
+        <div>
           <div className="card-image">
             <img src={this.props.img} />
             <span className="card-title">{this.props.title} </span>
@@ -42,15 +42,13 @@ var GoCard = React.createClass({
         
         </div>
         <div className="card-action">
-          <a href="#">Signup</a>
-          <a href={"/goeventview/" + this.props.id}>View GO!</a>
+          <a href="#">Join</a>
+          
         </div>
       </div>
-    </div>
+   
       )
     }
 });
 
-module.exports = GoCard;
-
-
+module.exports = GoEventFull;

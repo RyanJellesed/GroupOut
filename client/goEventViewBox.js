@@ -1,12 +1,12 @@
 var React = require('react');
-var GoCard = require('./goCard');
+var GoEventFull = require('./goEventFull');
 
-var ProfileEventBox = React.createClass({
+var GoEventViewBox = React.createClass({
   render: function() {
     console.log(this.props.events);
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
-            <GoCard
+            <GoEventFull
               id = {oneEvent._id}
               creatorName = {oneEvent.creator.facebook.name}
               creatorImg = {oneEvent.creator.facebook.picture}
@@ -35,4 +35,4 @@ var ProfileEventBox = React.createClass({
     }
 });
 
-module.exports = ProfileEventBox;
+module.exports = GoEventViewBox;
