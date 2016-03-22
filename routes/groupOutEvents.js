@@ -48,7 +48,11 @@ router.route ('/')
 
  router.route('/:event_id')
     .get(function(req, res){
-        GoEvent.find(req.params.event_id, function(err, event){
+        GoEvent.findById(req.params.event_id) 
+        .populate('creator')
+        .populate('category')
+        .populate('level')
+        .exec(function(err, event){
             if(err){
                 console.log(err)
             } else {
@@ -94,6 +98,27 @@ router.route ('/')
             }
         });
     });
+
+router.route('/:event_id/join')
+    .put(function(req, res){
+        GoEvent.findById(req.params.event_id, function(err, event){
+            if(err){
+                console.log(err)
+            } else {
+                console.log(event)
+                
+                event.joiners.push(u);
+
+                event.save(function(err, e){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        res.json(e);
+                    }
+                });
+            }
+        });
+    })
 
 router.route('/:event_id/comment')
     .post(function(req, res){

@@ -15,7 +15,6 @@ var GoEventApp = React.createClass({
         }
         console.log(events)
     },
-    
     loadEventsFromServer: function(){
         var self=this;
         $.ajax ({
@@ -31,6 +30,7 @@ var GoEventApp = React.createClass({
     componentDidMount: function(){
         console.log("componentDidMount fired");
         this.loadEventsFromServer()
+        this.loadUserFromServer();
     },
     render: function() {
     return (

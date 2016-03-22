@@ -1,6 +1,18 @@
 var React = require('react');
 
 var GoCard = React.createClass({
+  joinEvent: function(event_id){
+    var data = {one: "thing"};
+    console.log("ajax initiated");
+    $.ajax({
+      url: "/api/event/" + event_id + "/join",
+      method: "PUT",
+      data: data,
+      dataType: "JSON"
+    }).done(function(d){
+      console.log(d);
+    })
+  },
   render: function() {
     return (
       <div className="col s12 l4">
@@ -42,8 +54,8 @@ var GoCard = React.createClass({
         
         </div>
         <div className="card-action">
-          <a href="#">Signup</a>
-          <a href={"/goeventview/" + this.props.id}>View GO!</a>
+          <button onClick={this.joinEvent.bind(this, this.props.id)}>Join</button>
+          <a href={"/goeventview?q=" + this.props.id}>View GO!</a>
         </div>
       </div>
     </div>

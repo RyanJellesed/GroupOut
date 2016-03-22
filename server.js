@@ -101,8 +101,9 @@ app.get('./partial', function(req,res){
   res.render('navbar');
 });
 
-app.get('/goeventview/:event_id', function(req,res){
-  res.render('goeventview', {eventId : req.params.event_id});
+app.get('/goeventview?', function(req,res){
+  console.log(req.query.q);
+  res.render('goeventview');
 });
 
 
