@@ -106,8 +106,7 @@ router.route('/:event_id/join')
                 console.log(err)
             } else {
                 console.log(event)
-                
-                event.joiners.push(u);
+                event.joiners.push(req.user._id);
 
                 event.save(function(err, e){
                     if(err){
