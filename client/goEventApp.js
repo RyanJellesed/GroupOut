@@ -33,7 +33,7 @@ var GoEventApp = React.createClass({
     render: function() {
     return (
       <div>
-        <AllEventBox events={this.state.events} />
+        <AllEventBox loadEvents={ this.loadEventsFromServer } events={this.state.events} />
       </div>
 
       )
