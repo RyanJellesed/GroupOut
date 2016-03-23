@@ -4,10 +4,14 @@
   <container>
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
-          <li><a href="/goeventcreate">Create a GO!</a></li>
-          <li><a href="/profile">profile</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="./about">About-Terms</a></li>
+          <% if (user) { %> 
+          <li><a class="blue-grey-text" href="/logout">Logout</a></li>
+          <% } else { %> 
+          <li><a class="blue-grey-text" href="/auth/facebook">Login</a></li>
+          <% } %>
+          <li><a class="blue-grey-text" href="/goeventcreate">Create a GO!</a></li>
+          <li><a class="blue-grey-text" href="/profile">profile</a></li>
+          <li><a class="blue-grey-text" href="/about">About-Terms</a></li>
         </ul>
        
         <nav>
@@ -17,9 +21,9 @@
             <ul class="right">
               <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a></li>
             </ul>
-            <ul class="right hide-on-med-and-down">
+            <!-- <ul class="right hide-on-med-and-down">
               <li><a href=""><i class="fa fa-filter"></i></a></li>
-              
+            </ul> -->
               <!-- Dropdown Trigger -->
               
             
@@ -32,8 +36,10 @@
               <div class="caption left-align">
                 <h2>GO</h2>
                 <h3 class="light grey-text text-lighten-3">Into The Unknown</h3>
+                <% if (!user) { %> 
                 <p>Login or Register with:</p>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                <a href="/auth/facebook" class="btn btn-primary light-blue darken-4"><span class="fa fa-facebook"></span> Facebook</a>
+                <% } %>
               </div>
             </li>
             <li>
@@ -41,8 +47,10 @@
               <div class="caption right-align">
                 <h2>GO</h2>
                 <h3 class="light grey-text text-lighten-3">Somewhere New</h3>
+                <% if (!user) { %> 
                 <p>Login or Register with:</p>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                <a href="/auth/facebook" class="btn btn-primary light-blue darken-4"><span class="fa fa-facebook"></span> Facebook</a>
+                <% } %>
               </div>
             </li>
             <li>
@@ -50,8 +58,10 @@
               <div class="caption left-align">
                 <h2>GO</h2>
                 <h3 class="light grey-text text-lighten-3">Discover The World</h3>
+                <% if (!user) { %> 
                 <p>Login or Register with:</p>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                <a href="/auth/facebook" class="btn btn-primary light-blue darken-4"><span class="fa fa-facebook"></span> Facebook</a>
+                <% } %>
               </div>
             </li>
             <li>
@@ -59,8 +69,10 @@
               <div class="caption center-align">
                 <h2>GO</h2>
                 <h3 class="light grey-text text-lighten-5">Against The Status Quo</h3>
+                <% if (!user) { %> 
                 <p>Login or Register with:</p>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                <a href="/auth/facebook" class="btn btn-primary light-blue darken-4"><span class="fa fa-facebook"></span> Facebook</a>
+                <% } %>
               </div>
             </li>
             <li>
@@ -68,8 +80,10 @@
               <div class="caption left-align bottom ">
                 <h2>GO</h2>
                 <h3 class="light grey-text text-lighten-3">Find An Adventure</h3>
+                <% if (!user) { %> 
                 <p>Login or Register with:</p>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+                <a href="/auth/facebook" class="btn btn-primary light-blue darken-4"><span class="fa fa-facebook"></span> Facebook</a>
+                <% } %>
               </div>
             </li>
           </ul>

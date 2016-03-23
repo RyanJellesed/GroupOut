@@ -95,20 +95,25 @@ var FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || '1732046997082547';
 
 app.get('/', function(req,res){
   console.log('rendering /');
-  res.render('index', {FACEBOOK_APP_ID: FACEBOOK_APP_ID});
+  var user = req.user ? req.user : null;
+  console.log(user);
+  res.render('index', {
+      FACEBOOK_APP_ID: FACEBOOK_APP_ID,
+      user: user
+       });
 });
-app.get('./partial', function(req,res){
-  res.render('navbar');
-});
+
 
 app.get('/goeventview?', function(req,res){
   console.log(req.query.q);
-  res.render('goeventview');
+  var user = req.user ? req.user : null;
+  res.render('goeventview', {user: user});
 });
 
 
 app.get('/about', function(req,res) {
-  res.render('about');
+  var user = req.user ? req.user : null;
+  res.render('about', {user: user});
 });
 
 

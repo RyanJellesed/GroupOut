@@ -97,8 +97,6 @@ var FormBox = React.createClass({
 			        	</div>
 			      	</div>  
 
-					<div className="container" id="map"></div>
-
 			      	<div className="row">
 				     	<div className="input-field col s12">
 				          <input onChange ={this.handleDescriptionChange} value={this.state.description} placeholder="Description" id="description" type="text" className="validate" />

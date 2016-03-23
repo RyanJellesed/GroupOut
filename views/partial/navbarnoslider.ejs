@@ -4,10 +4,14 @@
   <container>
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
-          <li><a href="/goeventcreate">Create a GO!</a></li>
-          <li><a href="/profile">profile</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="./about">About-Terms</a></li>
+          <% if (user) { %> 
+          <li><a class="blue-grey-text" href="/logout">Logout</a></li>
+          <% } else { %> 
+          <li><a class="blue-grey-text" href="/auth/facebook">Login</a></li>
+          <% } %>
+          <li><a class="blue-grey-text" href="/goeventcreate">Create a GO!</a></li>
+          <li><a class="blue-grey-text" href="/profile">profile</a></li>
+          <li><a class="blue-grey-text" href="/about">About-Terms</a></li>
         </ul>
        
         <nav>
@@ -17,9 +21,9 @@
             <ul class="right">
               <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a></li>
             </ul>
-            <ul class="right hide-on-med-and-down">
+            <!-- <ul class="right hide-on-med-and-down">
               <li><a href=""><i class="fa fa-filter"></i></a></li>
-              
+            </ul>   -->
               <!-- Dropdown Trigger -->
               
             

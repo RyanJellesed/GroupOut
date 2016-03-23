@@ -56,16 +56,18 @@ var DropDownLevels= React.createClass({
 var DropDowns = React.createClass({
     render: function() {
         return (
-            <div className="row">
-              <div className="input-field col s6">
-                  <p>What kind of GO is this?</p>
-                  <DropDownCategories handleCatChange={this.props.handleCategoryChange} categories={ this.props.categories } />
-                  
+            <div>  
+              <div className="row">
+                <div className="input-field col s12">
+                    <p>What kind of GO is this?</p>
+                    <DropDownCategories handleCatChange={this.props.handleCategoryChange} categories={ this.props.categories } />
+                </div>
               </div>
-              <div className="input-field col s6">   
-                  <p>How difficult is your GO?</p>
-                  <DropDownLevels handleLevelChange={this.props.handleLevelChange} levels={this.props.levels} />
-                  
+              <div className="row">     
+                <div className="input-field col s12">   
+                    <p>How difficult is your GO?</p>
+                    <DropDownLevels handleLevelChange={this.props.handleLevelChange} levels={this.props.levels} />
+                </div>
               </div>
             </div>
             )

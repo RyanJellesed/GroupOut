@@ -7,7 +7,10 @@ module.exports = function(app, passport) {
 
     app.get('/', function(req,res){
       console.log('rendering / after login');
-      res.render('index', {FACEBOOK_APP_ID: FACEBOOK_APP_ID});
+      res.render('index', {
+        FACEBOOK_APP_ID: FACEBOOK_APP_ID,
+        user: req.user
+        });
     });
 
     // route for login form

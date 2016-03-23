@@ -31,9 +31,9 @@ var GoCard = React.createClass({
     var u = this.state.user ? this.state.user : {facebook: {name: 'anon'}};
     console.log(u);
     if(this.state.user.facebook.name !== 'anon') {
-      return <button className="waves-effect waves-light btn" onClick={this.joinEvent.bind(this, this.props.id, this.props.joiners, u)}>Join</button>
+      return <button className="waves-effect waves-light btn blue-grey" onClick={this.joinEvent.bind(this, this.props.id, this.props.joiners, u)}>Join</button>
     } else {
-      return <a className="waves-effect waves-light btn" href="/auth/facebook">login to join</a>
+      return <a className="waves-effect waves-light btn blue-grey" href="/auth/facebook">login to join</a>
     }
   },
   joinEvent: function(event_id, joiners, user){
@@ -97,7 +97,7 @@ var GoCard = React.createClass({
               {this.shouldShowJoin()}
             </div>
             <div className="right">
-              <a className="waves-effect waves-light btn" href={"/goeventview?q=" + this.props.id}>View GO!</a>
+              <a className="waves-effect waves-light btn blue-grey" href={"/goeventview?q=" + this.props.id}>View GO!</a>
             </div>
           </div>
         </div>
