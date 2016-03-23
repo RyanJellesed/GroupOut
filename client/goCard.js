@@ -1,19 +1,42 @@
 var React = require('react');
 
 var GoCard = React.createClass({
-  joinEvent: function(event_id){
-    var data = {one: "thing"};
-    console.log("ajax initiated");
+  getInitialState: function() {
+    return {
+      user: {},
+    }
+  },
+  loadUserFromServer: function() {
+    var self = this;
     $.ajax({
-      url: "/api/event/" + event_id + "/join",
-      method: "PUT",
-      data: data,
-      dataType: "JSON"
-    }).done(function(d){
-      console.log(d);
+      url: "/api/user/getUser",
+      method: "GET"
+    }).done(function(d) {
+      self.setState({
+        user: d
+      })
     })
   },
+  componentDidMount: function() {
+    this.loadUserFromServer();
+  },
+  joinEvent: function(event_id, joiners, user){
+    var self = this;
+    if(joiners.includes(user._id)) {
+      alert('you\'ve already joined');
+    } else {
+       $.ajax({
+        url: "/api/event/" + event_id + "/join",
+        method: "PUT",
+        dataType: "JSON"
+      }).done(function(d){
+        self.props.loadEvents();
+        console.log(d);
+      })
+    }
+  },
   render: function() {
+    var u = this.state.user ? this.state.user : null;
     return (
       <div className="col s12 l4">
         <div className="card hoverable">
@@ -54,7 +77,7 @@ var GoCard = React.createClass({
         
         </div>
         <div className="card-action">
-          <button onClick={this.joinEvent.bind(this, this.props.id)}>Join</button>
+          <button onClick={this.joinEvent.bind(this, this.props.id, this.props.joiners, u)}>Join</button>
           <a href={"/goeventview?q=" + this.props.id}>View GO!</a>
         </div>
       </div>

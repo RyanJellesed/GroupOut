@@ -31,7 +31,7 @@ var GoEventViewApp = React.createClass({
     	if (this.state.event) {
     		   return (
       <div>
-        <GoEventViewBox event={this.state.event} />
+        <GoEventViewBox event={this.state.event} loadEventFromServer={this.loadEventFromServer} />
       </div>
 
       					)

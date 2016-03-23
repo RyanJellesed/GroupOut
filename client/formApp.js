@@ -157,7 +157,6 @@ var FormApp = React.createClass({
     },
 	loadLevelsFromServer: function() {
 		var self = this;
-		console.log('trying to load levels from server');
 		$.ajax({
 			url: '/api/levels',
 			method: 'GET'
@@ -168,7 +167,6 @@ var FormApp = React.createClass({
 	},
 	loadCategoriesFromServer: function() {
 		var self = this;
-		console.log('trying to load categories from server');
 		$.ajax({
 			url: '/api/categories',
 			method: 'GET'
@@ -185,19 +183,16 @@ var FormApp = React.createClass({
             data: goEvent,
         }).done(function() {
         	document.location = "/profile"
-            console.log('posted event to server')
         }).fail(function(err){
         	console.log(err);
         	alert('no go bro!')
         })
     },
     componentDidMount: function() {
-        console.log('componentDidMount fired');
         this.loadLevelsFromServer();
         this.loadCategoriesFromServer();
     },
     render: function() {
-        console.log('trying to render');
         return (
             <div>
                 <FormBox eventSubmit={this.eventSubmit} categories={this.state.categories} levels={this.state.levels}  />

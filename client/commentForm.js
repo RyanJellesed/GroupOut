@@ -7,8 +7,8 @@ var CommentForm = React.createClass({
          
       }
     },
-    handleCommentFormChange: function(thing) {
-      this.setState({commentBody: thing});
+    handleCommentFormChange: function(event) {
+      this.setState({commentBody: event.target.value});
     },
     handleSubmit: function(e) {
       e.preventDefault();
@@ -24,17 +24,19 @@ var CommentForm = React.createClass({
     render: function() {
         return (
             <div>  
-              <div className="row">
-                <div className="input-field col s12">
-                    <input onChange ={this.handleCommentFormChange} value={this.state.commentBody} placeholder="comment" id="comment" type="text" className="validate" />
-                </div>
-              </div> 
-              <div className="row">
-                <div className="col s12 container">
-                <button type="submit" className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>comment</button>
-              </div>
-            </div> 
-          </div>
+              <form onSubmit={this.handleSubmit}>
+                <div className="row">
+                  <div className="input-field col s12">
+                      <input onChange ={this.handleCommentFormChange} value={this.state.commentBody} placeholder="comment" type="text" />
+                  </div>
+                </div> 
+                <div className="row">
+                  <div className="col s12 container">
+                  <button type="submit" className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>comment</button>
+                  </div>
+                </div> 
+              </form>
+            </div>
         )
     }
 });

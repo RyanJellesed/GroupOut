@@ -28,7 +28,6 @@ var GoEventApp = React.createClass({
         })
     },
     componentDidMount: function(){
-        console.log("componentDidMount fired");
         this.loadEventsFromServer();
     },
     render: function() {

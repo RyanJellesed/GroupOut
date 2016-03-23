@@ -18,7 +18,6 @@ var ProfileApp = React.createClass({
             url: this.props.urlb,
             method: 'GET'
         }).done(function(d){
-            console.log(d);
             self.setState({
                 events: d
             })
@@ -26,19 +25,16 @@ var ProfileApp = React.createClass({
     },
 	loadUserFromServer: function() {
 		var self = this;
-		console.log('loadUserFromServer being fired')
 		$.ajax({
 			url: this.props.urla,
 			method: "GET"
 		}).done(function(d) {
-			console.log(d);
 			self.setState({
 				user: d
 			})
 		})
 	},
 	componentDidMount: function() {
-		console.log('componentDidMount profile fired');
 		this.loadUserFromServer();
 		this.loadEventsFromServer();
 	},
@@ -62,7 +58,7 @@ var ProfileApp = React.createClass({
 			            </div>
 		    		</div>
 		    		<div className="container">
-		    			<ProfileEventBox user={this.state.user} events={this.state.events} />
+		    			<ProfileEventBox loadEvents={ this.loadEventsFromServer } user={this.state.user} events={this.state.events} />
 		    		</div>
             	</div>
             )

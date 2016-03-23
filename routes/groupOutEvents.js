@@ -133,10 +133,9 @@ router.route('/:event_id/join')
 router.route('/:event_id/comment')
     .post(function(req, res){
         var comment = new Comment();
-        comment.event = req.params.event_id,
-        comment.commentor = req.params.user_id,
-        // comment.commentor = "56e1aa50ce328313072914b6",
-        comment.commentBody = req.body.commentBody,
+        comment.commentor = req.user._id;
+        comment.date = req.body.date;
+        comment.commentBody = req.body.commentBody;
 
         console.log('event comments working');
         comment.save(function(err, com){
@@ -156,6 +155,8 @@ router.route('/:event_id/comment')
         })
     
     })
+
+
 
 
 module.exports = router;   

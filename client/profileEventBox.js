@@ -3,10 +3,12 @@ var GoCard = require('./goCard');
 
 var ProfileEventBox = React.createClass({
   render: function() {
-    console.log(this.props.events);
+    var self = this;
+    console.log(this.props.loadEvents, "found the events function!")
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
             <GoCard
+              loadEvents = {self.props.loadEvents}
               id = {oneEvent._id}
               creatorName = {oneEvent.creator.facebook.name}
               creatorImg = {oneEvent.creator.facebook.picture}
@@ -22,8 +24,7 @@ var ProfileEventBox = React.createClass({
               levelIcon = {oneEvent.level.icon}
               petFriendly = {oneEvent.petFriendly}
               familyFriendly = {oneEvent.familyFriendly}
-              comments = {oneEvent.comments}
-               />
+              comments = {oneEvent.comments}/>
           )
       });
     

@@ -3,10 +3,12 @@ var GoCard = require('./goCard');
 
 var AllEventBox = React.createClass({
   render: function() {
-    console.log(this.props.events);
+    console.log(this.props.loadEvents);
+    var self = this;
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
             <GoCard
+              loadEvents = {self.props.loadEvents}
               id = {oneEvent._id}
               creatorName = {oneEvent.creator.facebook.name}
               creatorImg = {oneEvent.creator.facebook.picture}

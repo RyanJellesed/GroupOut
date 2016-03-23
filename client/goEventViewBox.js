@@ -3,26 +3,16 @@ var GoEventViewComments = require('./goEventViewComments');
 var CommentForm = require('./commentForm');
 
 var GoEventViewBox = React.createClass({
-  commentOnEvent: function(event_id){
-    var data = {one: "thing"};
-    console.log("ajax initiated");
-    $.ajax({
-      url: "/api/event/" + event_id + "/comment",
-      method: "POST",
-      data: data,
-      dataType: "JSON"
-    }).done(function(d){
-      console.log(d);
-    })
-  },
   commentSubmit: function(comment){
+    var comment = comment;
          var self = this;
          $.ajax({
             url: "/api/event/" + comment.event + "/comment",
             method: 'POST',
             data: comment,
-        }).done(function() {
-          
+        }).done(function(data) {
+          console.log(data);
+          self.props.loadEventFromServer();
         }).fail(function(err){
           console.log(err);
           alert('no go bro!')
