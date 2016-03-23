@@ -4,7 +4,6 @@ var GoCard = require('./goCard');
 var ProfileEventBox = React.createClass({
   render: function() {
     var self = this;
-    console.log(this.props.loadEvents, "found the events function!")
     var eventMap = this.props.events.map(function(oneEvent) {
         return (
             <GoCard

@@ -3,7 +3,7 @@ var React = require('react');
 var GoCard = React.createClass({
   getInitialState: function() {
     return {
-      user: {},
+      user: {facebook: {name: 'anon'}},
     }
   },
   loadUserFromServer: function() {
@@ -12,13 +12,29 @@ var GoCard = React.createClass({
       url: "/api/user/getUser",
       method: "GET"
     }).done(function(d) {
+      console.log(d)
+      if(d.user === "no user"){
+      self.setState({
+        user: {facebook: {name: 'anon'}}
+      })
+      } else {
       self.setState({
         user: d
-      })
+      })        
+      }
     })
   },
   componentDidMount: function() {
     this.loadUserFromServer();
+  },
+  shouldShowJoin: function() {
+    var u = this.state.user ? this.state.user : {facebook: {name: 'anon'}};
+    console.log(u);
+    if(this.state.user.facebook.name !== 'anon') {
+      return <button className="waves-effect waves-light btn" onClick={this.joinEvent.bind(this, this.props.id, this.props.joiners, u)}>Join</button>
+    } else {
+      return <a className="waves-effect waves-light btn" href="/auth/facebook">login to join</a>
+    }
   },
   joinEvent: function(event_id, joiners, user){
     var self = this;
@@ -36,7 +52,6 @@ var GoCard = React.createClass({
     }
   },
   render: function() {
-    var u = this.state.user ? this.state.user : null;
     return (
       <div className="col s12 l4">
         <div className="card hoverable">
@@ -77,8 +92,14 @@ var GoCard = React.createClass({
         
         </div>
         <div className="card-action">
-          <button onClick={this.joinEvent.bind(this, this.props.id, this.props.joiners, u)}>Join</button>
-          <a href={"/goeventview?q=" + this.props.id}>View GO!</a>
+          <div className="row button-row"> 
+            <div className="col s6 valign-wrapper"> 
+              {this.shouldShowJoin()}
+            </div>
+            <div className="right">
+              <a className="waves-effect waves-light btn" href={"/goeventview?q=" + this.props.id}>View GO!</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

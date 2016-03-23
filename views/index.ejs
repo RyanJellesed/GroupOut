@@ -16,83 +16,11 @@
 
     <body>
 
-      <container>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">Signup</a></li>
-          <li><a href="#!">Group Outs</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">Create Group Out</a></li>
-          <li><a href="#!">Profile</a></li>
-        </ul>
-        <nav>
-          <div class="nav-wrapper blue-grey darken-2">
-            <a id="logo" href="#!" class="brand-logo">Group Out!</a>
-            </ul>
-            <ul class="right">
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a></li>
-            </ul>
-            <ul class="right hide-on-med-and-down">
-              <li><a href=""><i class="material-icons">directions_run</i></a></li>
-              <li><a href=""><i class="material-icons">fitness_center</i></a></li>
-              <li><a href=""><i class="material-icons">directions_bike</i></a></li>
-              <!-- Dropdown Trigger -->
-              
-            
-          </div>
-        </nav>
-      </container> <!-- end nav container -->
+     <div>
+        <%-include ./partial/navbar.ejs %>
+     </div>
 
-        <div class="slider">
-          <ul class="slides">
-
-            <li>
-              <img src="../img/woman.jpg"> 
-              <div class="caption left-align">
-                <h2>GO</h2>
-                <h3>Into The Unknown</h3>
-                <a href="/auth/facebook" class="waves-effect waves-light btn-large">log in with <span class="fa fa-facebook-square fa-2x"></span></a>
-              </div>
-            </li>
-
-            <li>
-              <img src="../img/shoes.jpg"> 
-              <div class="caption right-align">
-                <h2>GO</h2>
-                <h3 class="light grey-text text-lighten-3">Somewhere New</h3>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
-              </div>
-            </li>
-
-            <li>
-              <img src="../img/girl.jpg"> 
-              <div class="caption left-align">
-                <h2>GO</h2>
-                <h3 class="light grey-text text-lighten-3">Discover The World</h3>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
-              </div>
-            </li>
-
-            <li>
-              <img src="../img/tourism.jpg"> 
-              <div class="caption center-align">
-                <h2>GO</h2>
-                <h3 class="light grey-text text-lighten-5">Against The Status Quo</h3>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
-              </div>
-            </li>
-
-            <li>
-              <img src="../img/mountain-bike.jpg"> 
-              <div class="caption left-align bottom ">
-                <h2>GO</h2>
-                <h3 class="light grey-text text-lighten-3">Find An Adventure</h3>
-                <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook-square"></span> Facebook</a>
-              </div>
-            </li>
-
-          </ul>
-        </div> <!-- end slider -->
+        
 
 <script>
  window.fbAsyncInit = function() {

@@ -107,7 +107,9 @@ app.get('/goeventview?', function(req,res){
 });
 
 
-
+app.get('/about', function(req,res) {
+  res.render('about');
+});
 
 
 app.get('/template', function(req,res) {

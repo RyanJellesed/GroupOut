@@ -15,7 +15,7 @@ var ProfileApp = React.createClass({
 	loadEventsFromServer: function(){
         var self=this;
         $.ajax ({
-            url: this.props.urlb,
+            url: "/api/event",
             method: 'GET'
         }).done(function(d){
             self.setState({
@@ -26,7 +26,7 @@ var ProfileApp = React.createClass({
 	loadUserFromServer: function() {
 		var self = this;
 		$.ajax({
-			url: this.props.urla,
+			url: "/api/user/getUser",
 			method: "GET"
 		}).done(function(d) {
 			self.setState({
@@ -66,5 +66,5 @@ var ProfileApp = React.createClass({
 
 });
 
-ReactDOM.render(<ProfileApp urla="/api/user/getUser" urlb="/api/event" />,
+ReactDOM.render(<ProfileApp />,
   document.getElementById('profile-app-all'));

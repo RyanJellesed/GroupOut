@@ -112,6 +112,7 @@ router.route ('/')
 
 router.route('/:event_id/join')
     .put(function(req, res){
+        var user = req.user || "no user";
         GoEvent.findById(req.params.event_id, function(err, event){
             if(err){
                 console.log(err)
