@@ -1,6 +1,33 @@
 var React = require('react');
+var GoEventViewComments = require('./goEventViewComments');
+var CommentForm = require('./commentForm');
 
 var GoEventViewBox = React.createClass({
+  commentOnEvent: function(event_id){
+    var data = {one: "thing"};
+    console.log("ajax initiated");
+    $.ajax({
+      url: "/api/event/" + event_id + "/comment",
+      method: "POST",
+      data: data,
+      dataType: "JSON"
+    }).done(function(d){
+      console.log(d);
+    })
+  },
+  commentSubmit: function(comment){
+         var self = this;
+         $.ajax({
+            url: "/api/event/" + comment.event + "/comment",
+            method: 'POST',
+            data: comment,
+        }).done(function() {
+          
+        }).fail(function(err){
+          console.log(err);
+          alert('no go bro!')
+        })
+    },
   render: function() {
     console.log(this.props.event); 
     return (
@@ -40,12 +67,18 @@ var GoEventViewBox = React.createClass({
             <div className="chip">
               {this.props.event.joiners.length} people have joined this event
             </div>
-        
+            <div>
+              <h6>COMMENTS</h6>
+            <GoEventViewComments comments={this.props.event.comments} />
+            <CommentForm commentSubmit={this.commentSubmit} event={this.props.event} />
+            </div>
         </div>
         <div className="card-action">
-          <a href="#">Join</a>
-          
+          <a href="#">Join</a>  
         </div>
+
+        
+
       </div>
     </div>
   </container>

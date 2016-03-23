@@ -52,6 +52,17 @@ router.route ('/')
         .populate('creator')
         .populate('category')
         .populate('level')
+        .populate({
+            path:'comments',
+            populate: {
+                path: 'commentor',
+                select: 'facebook.name facebook.picture'
+            }
+        })
+        .populate({
+            path:'joiners',
+            select: 'facebook.name facebook.picture'
+        })
         .exec(function(err, event){
             if(err){
                 console.log(err)
@@ -122,11 +133,9 @@ router.route('/:event_id/join')
 router.route('/:event_id/comment')
     .post(function(req, res){
         var comment = new Comment();
-        
-
         comment.event = req.params.event_id,
-        // comment.commentor = req.params.commentor_id,
-        comment.commentor = "56e1aa50ce328313072914b6",
+        comment.commentor = req.params.user_id,
+        // comment.commentor = "56e1aa50ce328313072914b6",
         comment.commentBody = req.body.commentBody,
 
         console.log('event comments working');
@@ -134,7 +143,6 @@ router.route('/:event_id/comment')
             if(err){
                 res.send(err);
             } else {
-
                 GoEvent.findById(req.params.event_id, function(err, event){
                     if(err){
                         res.send(err);
@@ -146,7 +154,9 @@ router.route('/:event_id/comment')
                 })
             }
         })
+    
     })
+
 
 module.exports = router;   
 
