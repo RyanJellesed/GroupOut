@@ -157,6 +157,22 @@ router.route('/:event_id/comment')
     
     })
 
+router.route('/my/events/anything')
+    .get(function(req, res){
+        
+        GoEvent.find( { $or: [{ joiners:   req.user._id  },  { creator: req.user._id}]  }  )  
+        .populate('creator')
+        .populate('category')
+        .populate('level')
+        .exec(function(err, goevent){
+            if(err){
+                console.log(err)
+            } else {
+                res.json(goevent)
+            }
+        })
+    })
+
 
 
 

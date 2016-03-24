@@ -15,7 +15,7 @@ var ProfileApp = React.createClass({
 	loadEventsFromServer: function(){
         var self=this;
         $.ajax ({
-            url: "/api/event",
+            url: "/api/event/my/events/anything",
             method: 'GET'
         }).done(function(d){
             self.setState({
@@ -48,7 +48,7 @@ var ProfileApp = React.createClass({
         };
 
         return (
-	        	<div className="container">
+	        	<div>
 		    		<div className="container">
 		    			<p>user logged in as:</p>
 

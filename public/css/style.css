@@ -18,6 +18,10 @@ nav .brand-logoOURS {
  }
 }
 
+.card .card-image .card-title {
+  text-shadow: 2px 2px #000000 ;
+}
+
 #GoViewFullPage .divider {
   margin-bottom: 25px;
 }
