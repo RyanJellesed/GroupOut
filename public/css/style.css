@@ -1,25 +1,51 @@
-#logo {
-  padding-left: 40px;
+.blackback {
+    background-color: #000;
+}
+
+nav .brand-logoOURS {
+ position: absolute;
+ left: 44%;
+ color: #e5a72b ;
+ display: inline-block;
+ font-size: 16pt;
+ padding: 0;
+ white-space: nowrap;
+}
+
+@media (max-width: 414px) {
+ nav .brand-logoOURS {
+   display: none;
+ }
+}
+
+
+.groupoutlogocenter {
+    position: absolute;
+    left: 50%;
 }
 
 .icon-ours {
-	height: 35px;
-	width: 35px;
+    height: 35px;
+    width: 35px;
 
 }
 
 .icon-ours-level {
-	height: 50px;
-	width: 50px;
-	padding-right: 5px;
+    height: 50px;
+    width: 50px;
+    padding-right: 5px;
 }
 
 #map {
-       width: 500px;
-       height: 400px;
-     }
+      width: 500px;
+      height: 400px;
+    }
+
+.slider .indicators .indicator-item.active {
+ background-color: #4e90a5 ;
+}
 
 
 #map-container {
-  height: 500px;
+ height: 500px;
 }

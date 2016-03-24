@@ -125,8 +125,8 @@ router.route('/:event_id/comment')
         
 
         comment.event = req.params.event_id,
-        // comment.commentor = req.params.commentor_id,
-        comment.commentor = "56e1aa50ce328313072914b6",
+        comment.commentor = req.params.commentor_id,
+        // comment.commentor = "56e1aa50ce328313072914b6",
         comment.commentBody = req.body.commentBody,
 
         console.log('event comments working');
