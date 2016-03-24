@@ -1,6 +1,7 @@
 var React = require('react');
 var GoEventViewComments = require('./goEventViewComments');
 var CommentForm = require('./commentForm');
+var JoinersChips = require('./joinersChips');
 
 var GoEventViewBox = React.createClass({
   commentSubmit: function(comment){
@@ -86,7 +87,7 @@ var GoEventViewBox = React.createClass({
 
             <div className="row">
               <div className="col s7 valign-wrapper">
-                  <img className="icon-ours-level" src={this.props.event.category.icon} />
+                  <img className="icon-ours-category" src={this.props.event.category.icon} />
                   <img className="icon-ours-level left" src={this.props.event.level.icon} />
               </div>
               <div className="right">
@@ -105,10 +106,10 @@ var GoEventViewBox = React.createClass({
               <img src={this.props.event.creator.facebook.picture} />
               {this.props.event.creator.facebook.name}
             </div>
-
-            <div className="chip">
-              {this.props.event.joiners.length} people have joined this event
-            </div>
+            <div className="divider"></div>
+            <h6>Joined by:</h6>
+            <JoinersChips joinerschips={this.props.event.joiners} />
+            
             <div>
               <h6>COMMENTS</h6>
             <GoEventViewComments comments={this.props.event.comments} />

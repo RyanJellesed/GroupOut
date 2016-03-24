@@ -68,7 +68,7 @@ var GoCard = React.createClass({
 
             <div className="row">
               <div className="col s7 valign-wrapper">
-                  <img className="icon-ours-level" src={this.props.categoryIcon} />
+                  <img className="icon-ours-category" src={this.props.categoryIcon} />
                   <img className="icon-ours-level left" src={this.props.levelIcon} />
               </div>
               <div className="right">
@@ -77,7 +77,7 @@ var GoCard = React.createClass({
                         {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
               </div>
             </div>  
-            <p>{this.props.description}</p>
+            <p className="overflowcard">{this.props.description}</p>
             <div className="divider"></div>
             <h6>created by:</h6>
             
@@ -87,7 +87,7 @@ var GoCard = React.createClass({
             </div>
 
             <div className="chip">
-              {this.props.joiners.length} people have joined this event
+              {this.props.joiners.length} peeps GOing
             </div>
         
         </div>

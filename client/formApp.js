@@ -81,8 +81,9 @@ var FormBox = React.createClass({
 			   	  <div className="row"></div>
 			      	<div className="row">
 			        		<div className="input-field col s12">
+			        		<h6>Name your GO</h6>
 			         		 <input onChange={this.handleTitleChange} value={this.state.title}  placeholder="Killer Outing" id="title" type="text" className="validate" />
-			          		 <label>Name your GO!</label>
+			          		 
 			        		</div>
 			      	</div> 
 			      	
@@ -92,26 +93,30 @@ var FormBox = React.createClass({
 
 				 	<div className="row">
 			        	<div className="input-field col s12">
+			        		<h6>Where is your GO</h6>
 			          		<input onChange={this.handleLocationChange} value={this.state.location} placeholder="Location" id="location" type="text" className="validate" />
-			          		<label>Where is your GO\?</label>
+			          		
 			        	</div>
 			      	</div>  
 
 			      	<div className="row">
 				     	<div className="input-field col s12">
+				     	<h6>Describe your GO</h6>
 				          <input onChange ={this.handleDescriptionChange} value={this.state.description} placeholder="Description" id="description" type="text" className="validate" />
-				          <label for="title">Describe your GO</label>
+				          
 				        </div>
 			      	</div>  
 
 			      	<div className="row">
 				        <div className="input-field col s6">
+				        <h6>Date of your GO</h6>
 							<input onChange={this.handleDateChange} value={this.state.date} id="date" type="date" className="datepicker" />
-				        	<label for="title">Date of your GO</label>
+				      
 				        </div>
 				        <div className="input-field col s6">
+				        <h6>Time of your GO</h6>
 				          <input onChange={this.handleTimeChange} value={this.state.time} placeholder="Time" id="time" type="text" />
-				          <label>Time of your GO</label>
+				          
 				        </div>
 			      	</div> 
 
@@ -133,7 +138,7 @@ var FormBox = React.createClass({
 				 	</div> 	 		
 				 	<div className="row">
 					 	<div className="col s12 container">
-					 		<button type="submit" className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>SAVE GO </button>
+					 		<button type="submit" className="waves-effect waves-light btn-large blue-grey"> <i className="material-icons right">send </i>SAVE GO </button>
 					 		
 					 	</div>
 					</div> 

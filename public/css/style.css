@@ -18,12 +18,29 @@ nav .brand-logoOURS {
  }
 }
 
+
 .card .card-image .card-title {
   text-shadow: 2px 2px #000000 ;
 }
 
+.slider .slides li .caption {
+ text-shadow: 2px 2px #000000 ; 
+}
+
 #GoViewFullPage .divider {
   margin-bottom: 25px;
+}
+
+.overflowcard {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;  
+}
+
+.overflowchip{
+  overflow: wrap;
+  padding-right: 1px;
 }
 
 .btn, .btn-large, .btn-flat {
@@ -41,10 +58,15 @@ nav .brand-logoOURS {
 
 }
 
+.icon-ours-category {
+   height: 50px;
+   width: 50px;
+   padding-right: 5px;
+}
+
 .icon-ours-level {
-    height: 50px;
-    width: 50px;
-    padding-right: 5px;
+   width: 100px;
+   padding-right: 5px;
 }
 
 .button-row {
