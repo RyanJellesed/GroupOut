@@ -64,7 +64,7 @@ var GoEventViewBox = React.createClass({
         method: "PUT",
         dataType: "JSON"
       }).done(function(d){
-        self.props.loadEvent();
+        self.props.loadEventFromServer();
         console.log(d);
       })
     }
