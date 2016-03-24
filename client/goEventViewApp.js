@@ -35,7 +35,7 @@ var GoEventViewApp = React.createClass({
                 })
                return (
                       <div>
-                        <GoEventViewBox joiners={joinersMap} event={this.state.event} loadEvent={this.loadEventFromServer} />
+                        <GoEventViewBox joiners={joinersMap} event={this.state.event} loadEventFromServer={this.loadEventFromServer} />
                       </div>
 
       					)
