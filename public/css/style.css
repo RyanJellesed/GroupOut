@@ -18,6 +18,13 @@ nav .brand-logoOURS {
  }
 }
 
+#GoViewFullPage .divider {
+  margin-bottom: 25px;
+}
+
+.btn, .btn-large, .btn-flat {
+  padding: 0 1rem;
+}
 
 .groupoutlogocenter {
     position: absolute;

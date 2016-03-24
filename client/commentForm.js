@@ -32,7 +32,7 @@ var CommentForm = React.createClass({
                 </div> 
                 <div className="row">
                   <div className="col s12 container">
-                  <button type="submit" className="waves-effect waves-light btn-large"> <i className="material-icons right">send </i>comment</button>
+                  <button type="submit" className="waves-effect waves-light btn-large blue-grey"> <i className="material-icons right">send </i>comment</button>
                   </div>
                 </div> 
               </form>

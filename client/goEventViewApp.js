@@ -28,11 +28,15 @@ var GoEventViewApp = React.createClass({
         this.loadEventFromServer()
     },
     render: function() {
-    	if (this.state.event) {
-    		   return (
-      <div>
-        <GoEventViewBox event={this.state.event} loadEventFromServer={this.loadEventFromServer} />
-      </div>
+        if (this.state.event) {
+    		   var joinersMap = this.state.event.joiners
+                .map(function(aJoiner) {
+                    return aJoiner._id
+                })
+               return (
+                      <div>
+                        <GoEventViewBox joiners={joinersMap} event={this.state.event} loadEvent={this.loadEventFromServer} />
+                      </div>
 
       					)
     		} else {

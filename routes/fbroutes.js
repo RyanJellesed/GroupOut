@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
     app.get('/goeventcreate', isLoggedIn, function(req, res){
     var user = req.user || "no user";
         res.render('goeventcreate', {user: user});
-});
+    });
 
     // =====================================
     // FACEBOOK ROUTES =====================

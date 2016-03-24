@@ -93,7 +93,7 @@ var FormBox = React.createClass({
 				 	<div className="row">
 			        	<div className="input-field col s12">
 			          		<input onChange={this.handleLocationChange} value={this.state.location} placeholder="Location" id="location" type="text" className="validate" />
-			          		<label>Wheres your GO!</label>
+			          		<label>Where is your GO\?</label>
 			        	</div>
 			      	</div>  
 
@@ -106,7 +106,8 @@ var FormBox = React.createClass({
 
 			      	<div className="row">
 				        <div className="input-field col s6">
-							 <input onChange={this.handleDateChange} value={this.state.date} id="date" type="date" className="datepicker" />
+							<input onChange={this.handleDateChange} value={this.state.date} id="date" type="date" className="datepicker" />
+				        	<label for="title">Date of your GO</label>
 				        </div>
 				        <div className="input-field col s6">
 				          <input onChange={this.handleTimeChange} value={this.state.time} placeholder="Time" id="time" type="text" />
