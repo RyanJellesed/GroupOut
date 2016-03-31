@@ -11,7 +11,6 @@ var GoEventViewApp = React.createClass({
         }
         
     },
-    
     loadEventFromServer: function(){
         var self=this;
         var eventID = window.location.href.split('=').pop()

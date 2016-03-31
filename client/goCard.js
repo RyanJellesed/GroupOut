@@ -76,8 +76,9 @@ var GoCard = React.createClass({
                         {this.props.familyFriendly ?  <img className="icon-ours" src="./icons/family-friendly.svg" /> : null }
                         {this.props.petFriendly ?  <img className="icon-ours" src="./icons/pet-friendly.svg" /> : <img className="icon-ours" src="./icons/pet-friendlyNO.svg" /> }
               </div>
-            </div>  
-            <p className="overflowcard">{this.props.description}</p>
+            </div>
+
+            <div className="overflowcard">{this.props.description}</div>
             <div className="divider"></div>
             <h6>created by:</h6>
             
